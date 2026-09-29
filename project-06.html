@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 06 — Real-Time Object & Face Detection | Yohan Ridho Maulana</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PROJECT HERO -->
+    <section class="project-detail-hero">
+        <div class="container">
+
+            <p class="eyebrow">PROJECT 06</p>
+
+            <h1>
+                Real-Time Object
+                <span>& Face Detection</span>
+            </h1>
+
+            <p class="project-detail-intro">
+                Sistem deteksi objek dan wajah secara real-time menggunakan
+                webcam laptop dan YOLO. Ketika wajah terdeteksi, sistem
+                mengambil gambar dari kamera dan mengirimkan foto beserta
+                notifikasi melalui Telegram Bot.
+            </p>
+
+            <div class="project-detail-tags">
+                <span>Python</span>
+                <span>YOLO</span>
+                <span>YOLO Face</span>
+                <span>OpenCV</span>
+                <span>PyTorch</span>
+                <span>Telegram Bot</span>
+                <span>CUDA</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 01 OVERVIEW -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">01</p>
+                <h2>Overview</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Project ini merupakan pengembangan sistem deteksi objek
+                    dan wajah secara real-time menggunakan kamera webcam
+                    laptop. Sistem memanfaatkan YOLO untuk mendeteksi objek
+                    tertentu, serta YOLO Face untuk mendeteksi wajah pada
+                    tampilan kamera.
+                </p>
+
+                <p>
+                    Objek yang dideteksi meliputi manusia (person), handphone
+                    (cell phone), dan remote control. Proses deteksi dilakukan
+                    menggunakan Python, Ultralytics, OpenCV, dan PyTorch,
+                    dengan pemrosesan memanfaatkan NVIDIA GeForce RTX 4050
+                    Laptop GPU.
+                </p>
+
+                <p>
+                    Ketika wajah terdeteksi, sistem secara otomatis mengambil
+                    gambar dari kamera dan mengirimkan foto beserta notifikasi
+                    melalui Telegram Bot. Mekanisme cooldown selama 60 detik
+                    diterapkan untuk membatasi pengiriman notifikasi berulang.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 02 TUJUAN -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">02</p>
+                <h2>Tujuan</h2>
+            </div>
+
+            <div class="detail-list">
+
+                <div class="detail-item">
+                    <span>01</span>
+                    <p>
+                        Mengembangkan sistem deteksi objek secara real-time
+                        menggunakan YOLO melalui webcam laptop.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>02</span>
+                    <p>
+                        Mengintegrasikan YOLO Face untuk mendeteksi wajah
+                        secara langsung dari tampilan kamera.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>03</span>
+                    <p>
+                        Mengimplementasikan pengiriman foto dan notifikasi
+                        otomatis melalui Telegram Bot ketika wajah terdeteksi.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>04</span>
+                    <p>
+                        Menerapkan mekanisme cooldown 60 detik untuk
+                        membatasi pengiriman notifikasi berulang.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 03 SISTEM & PERANCANGAN -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">03</p>
+                <h2>Sistem & Perancangan</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Sistem menggunakan webcam laptop sebagai sumber input
+                    video. Setiap frame kamera diproses menggunakan model
+                    deteksi objek YOLO dan model YOLO Face untuk mendeteksi
+                    objek serta wajah secara real-time.
+                </p>
+
+                <p>
+                    Hasil deteksi ditampilkan melalui aplikasi yang berjalan
+                    pada laptop. Ketika sistem mendeteksi wajah, program
+                    mengambil gambar dari kamera dan mengirimkannya bersama
+                    notifikasi melalui Telegram Bot. Pengiriman notifikasi
+                    dibatasi dengan cooldown selama 60 detik.
+                </p>
+
+                <p>
+                    Pemrosesan dijalankan pada laptop dengan NVIDIA GeForce
+                    RTX 4050 Laptop GPU menggunakan dukungan NVIDIA CUDA.
+                    Sistem dikembangkan menggunakan Python dengan pustaka
+                    OpenCV, Ultralytics, dan PyTorch.
+                </p>
+
+            </div>
+
+            <div class="parameter-table-wrapper" style="margin-top: 40px;">
+                <table class="parameter-table">
+
+                    <thead>
+                        <tr>
+                            <th>Komponen / Teknologi</th>
+                            <th>Fungsi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Webcam Laptop</td>
+                            <td>
+                                Menangkap video secara langsung sebagai
+                                input sistem deteksi.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>YOLO</td>
+                            <td>
+                                Mendeteksi objek seperti person, cell phone,
+                                dan remote control dari frame kamera.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>YOLO Face</td>
+                            <td>
+                                Mendeteksi keberadaan wajah pada frame kamera.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Python</td>
+                            <td>
+                                Menjalankan program utama dan mengintegrasikan
+                                proses deteksi serta notifikasi.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>OpenCV</td>
+                            <td>
+                                Mengakses webcam dan membantu pemrosesan
+                                serta pengambilan gambar dari kamera.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>PyTorch dan Ultralytics</td>
+                            <td>
+                                Mendukung pemuatan dan eksekusi model
+                                deteksi yang digunakan sistem.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Telegram Bot API</td>
+                            <td>
+                                Mengirimkan notifikasi dan foto hasil
+                                deteksi wajah ke Telegram.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>NVIDIA CUDA</td>
+                            <td>
+                                Mendukung pemrosesan model menggunakan
+                                NVIDIA GeForce RTX 4050 Laptop GPU.
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 04 DOKUMENTASI SISTEM -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">04</p>
+                <h2>Dokumentasi Sistem</h2>
+            </div>
+
+            <div class="documentation-grid">
+
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project06/detection-webcam.jpg"
+                            alt="Tampilan deteksi objek dan wajah melalui webcam"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Deteksi Real-Time</h3>
+                        <p>
+                            Tampilan proses deteksi objek dan wajah
+                            melalui webcam laptop.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project06/telegram-notification.jpg"
+                            alt="Notifikasi dan foto hasil deteksi yang dikirim ke Telegram"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Notifikasi Telegram</h3>
+                        <p>
+                            Dokumentasi pengiriman foto dan notifikasi
+                            ketika wajah terdeteksi.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project06/program.png"
+                            alt="Cuplikan program deteksi objek dan wajah"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Implementasi Program</h3>
+                        <p>
+                            Cuplikan kode program untuk deteksi objek,
+                            deteksi wajah, dan notifikasi Telegram.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 05 IMPLEMENTASI PROGRAM -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">05</p>
+                <h2>Implementasi Program</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Program dikembangkan menggunakan Python dengan
+                    memanfaatkan Ultralytics, OpenCV, dan PyTorch.
+                    OpenCV digunakan untuk mengakses webcam laptop,
+                    sedangkan model YOLO dan YOLO Face digunakan untuk
+                    mendeteksi objek dan wajah pada frame kamera.
+                </p>
+
+                <p>
+                    Sistem melakukan deteksi terhadap person, cell phone,
+                    dan remote control, serta mendeteksi wajah menggunakan
+                    model YOLO Face. Ketika wajah terdeteksi, program
+                    mengambil gambar dari kamera dan meneruskan foto
+                    beserta notifikasi ke Telegram melalui Telegram Bot API.
+                </p>
+
+                <p>
+                    Untuk membatasi notifikasi berulang, program menerapkan
+                    cooldown selama 60 detik. Dengan mekanisme ini,
+                    pengiriman notifikasi tidak dilakukan terus-menerus
+                    selama kondisi deteksi masih berlangsung.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 06 METODE PENGUJIAN -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">06</p>
+                <h2>Metode Pengujian</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Pengujian dilakukan dengan menjalankan program dan
+                    mengamati hasil deteksi secara langsung melalui webcam
+                    laptop. Pengujian mencakup deteksi objek yang didukung
+                    sistem, deteksi wajah, serta fungsi pengiriman foto
+                    dan notifikasi melalui Telegram Bot.
+                </p>
+
+                <p>
+                    Pengujian juga mencakup mekanisme cooldown untuk
+                    memastikan notifikasi tidak dikirim berulang dalam
+                    jeda waktu yang telah ditentukan. Sistem dijalankan
+                    pada laptop dengan NVIDIA GeForce RTX 4050 Laptop GPU.
+                </p>
+
+            </div>
+
+            <div class="detail-list" style="margin-top: 30px;">
+
+                <div class="detail-item">
+                    <span>01</span>
+                    <p>
+                        Menjalankan program dan mengaktifkan webcam laptop
+                        sebagai sumber video.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>02</span>
+                    <p>
+                        Mengamati proses deteksi objek person, cell phone,
+                        dan remote control pada tampilan kamera.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>03</span>
+                    <p>
+                        Mengamati proses deteksi wajah menggunakan
+                        model YOLO Face.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>04</span>
+                    <p>
+                        Memeriksa apakah sistem mengambil gambar dan
+                        mengirimkan foto beserta notifikasi ke Telegram
+                        ketika wajah terdeteksi.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>05</span>
+                    <p>
+                        Mengamati penerapan cooldown 60 detik untuk
+                        membatasi pengiriman notifikasi berulang.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 07 HASIL PENGUJIAN -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">07</p>
+                <h2>Hasil Pengujian</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Berdasarkan pengujian, sistem berhasil melakukan
+                    deteksi objek dan wajah secara real-time melalui
+                    webcam laptop. Objek yang menjadi target deteksi
+                    meliputi person, cell phone, dan remote control,
+                    sedangkan deteksi wajah dilakukan menggunakan
+                    model YOLO Face.
+                </p>
+
+                <p>
+                    Ketika wajah terdeteksi, sistem dapat mengambil
+                    gambar dari kamera dan mengirimkan foto beserta
+                    notifikasi secara otomatis melalui Telegram Bot.
+                    Mekanisme cooldown 60 detik digunakan untuk
+                    membatasi pengiriman notifikasi berulang.
+                </p>
+
+            </div>
+
+            <div class="parameter-table-wrapper" style="margin-top: 30px;">
+                <table class="parameter-table">
+
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Fungsi yang Diuji</th>
+                            <th>Hasil</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Deteksi objek person</td>
+                            <td>Berhasil</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>Deteksi objek cell phone</td>
+                            <td>Berhasil</td>
+                        </tr>
+
+                        <tr>
+                            <td>3</td>
+                            <td>Deteksi objek remote control</td>
+                            <td>Berhasil</td>
+                        </tr>
+
+                        <tr>
+                            <td>4</td>
+                            <td>Deteksi wajah menggunakan YOLO Face</td>
+                            <td>Berhasil</td>
+                        </tr>
+
+                        <tr>
+                            <td>5</td>
+                            <td>Pengiriman foto dan notifikasi Telegram</td>
+                            <td>Berhasil</td>
+                        </tr>
+
+                        <tr>
+                            <td>6</td>
+                            <td>Cooldown notifikasi 60 detik</td>
+                            <td>Diterapkan</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div class="project-detail-content" style="margin-top: 24px;">
+                <p>
+                    Hasil tersebut menunjukkan bahwa fungsi utama sistem
+                    dapat berjalan sesuai rancangan. Pengujian ini
+                    disajikan secara fungsional; nilai akurasi deteksi
+                    dan frame rate tidak dicantumkan karena belum
+                    tersedia data pengukuran kuantitatif.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 08 PROJECT SUMMARY -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">08</p>
+                <h2>Project Summary</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Real-Time Object & Face Detection with Telegram
+                    Notification merupakan sistem deteksi berbasis
+                    webcam laptop yang menggunakan YOLO dan YOLO Face.
+                    Sistem mendeteksi objek tertentu dan wajah secara
+                    real-time, serta mengirimkan foto dan notifikasi
+                    melalui Telegram Bot ketika wajah terdeteksi.
+                </p>
+
+            </div>
+
+            <div class="summary-points">
+
+                <div class="summary-point">
+                    <span>01</span>
+                    <div>
+                        <h3>Real-Time Object Detection</h3>
+                        <p>
+                            Mendeteksi person, cell phone, dan remote
+                            control melalui webcam laptop menggunakan YOLO.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="summary-point">
+                    <span>02</span>
+                    <div>
+                        <h3>Face Detection</h3>
+                        <p>
+                            Menggunakan YOLO Face untuk mendeteksi wajah
+                            secara langsung dari frame kamera.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="summary-point">
+                    <span>03</span>
+                    <div>
+                        <h3>Telegram Notification</h3>
+                        <p>
+                            Mengambil gambar ketika wajah terdeteksi
+                            dan mengirimkan foto beserta notifikasi
+                            melalui Telegram Bot.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="summary-point">
+                    <span>04</span>
+                    <div>
+                        <h3>Cooldown & GPU Processing</h3>
+                        <p>
+                            Menerapkan cooldown notifikasi selama
+                            60 detik dan memanfaatkan NVIDIA RTX 4050
+                            Laptop GPU untuk pemrosesan.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="project-footer">
+        <div class="container">
+
+            <div class="project-footer-content">
+
+                <div>
+                    <p class="project-footer-label">
+                        ELECTRICAL ENGINEERING PORTFOLIO
+                    </p>
+
+                    <h2>
+                        Yohan Ridho Maulana.
+                    </h2>
+
+                    <p>
+                        Electrical Engineering | Maintenance |
+                        Instrumentation | Automation
+                    </p>
+                </div>
+
+                <a href="index.html" class="project-back">
+                    ← Kembali ke Portfolio
+                </a>
+
+            </div>
+
+            <div class="project-footer-bottom">
+                <p>
+                    © 2026 Yohan Ridho Maulana. All Rights Reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

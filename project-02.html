@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 02 — Smart Trash Sorter | Yohan Ridho Maulana</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                YOHAN<span>.</span>
+            </a>
+
+            <nav>
+                <a href="index.html">Beranda</a>
+                <a href="index.html#about">Tentang</a>
+                <a href="index.html#education">Pendidikan</a>
+                <a href="index.html#skills">Keahlian</a>
+                <a href="index.html#projects">Project</a>
+                <a href="index.html#experience">Pengalaman</a>
+                <a href="index.html#certifications">Sertifikasi</a>
+                <a href="index.html#contact">Kontak</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- PROJECT -->
+    <main>
+
+        <section class="project-detail-hero">
+
+            <div class="container">
+
+                <p class="eyebrow">PROJECT 02</p>
+
+                <h1>
+                    Smart Trash
+                    <span>Sorter</span>
+                </h1>
+
+                <p class="project-detail-intro">
+                    Perancangan sistem pemilah sampah pintar dan deteksi
+                    volume sampah menggunakan Arduino Nano dengan
+                    beberapa sensor dan aktuator.
+                </p>
+
+                <div class="project-detail-tags">
+                    <span>Arduino Nano</span>
+                    <span>Sensor</span>
+                    <span>Servo</span>
+                    <span>Ultrasonic</span>
+                    <span>LCD I2C</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- OVERVIEW -->
+<section class="project-detail-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">01</p>
+            <h2>Overview</h2>
+        </div>
+
+        <div class="project-detail-content">
+
+            <p>
+                Project ini merupakan perancangan sistem pemilah sampah
+                pintar menggunakan Arduino Nano sebagai pengendali utama.
+                Sistem menggunakan beberapa sensor untuk membantu
+                mengidentifikasi karakteristik sampah sebelum diarahkan
+                ke tempat yang sesuai.
+            </p>
+
+            <p>
+                Sistem dilengkapi dengan sensor induktif untuk mendeteksi
+                material logam, sensor kapasitif untuk mendeteksi material
+                non-logam atau organik, serta sensor inframerah sebagai
+                bagian dari proses deteksi. Tiga sensor ultrasonic
+                digunakan untuk memantau tingkat volume pada masing-masing
+                tempat sampah.
+            </p>
+
+            <p>
+                Proses pemilahan dilakukan menggunakan dua servo sebagai
+                mekanisme pengarah sampah, sedangkan LCD 16×2 digunakan
+                untuk menampilkan informasi sistem. Pengujian dilakukan
+                pada sensor pemilah dan sistem deteksi volume untuk
+                mengetahui keberhasilan fungsi masing-masing bagian.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TUJUAN -->
+<section class="project-detail-section project-detail-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">02</p>
+            <h2>Tujuan</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span>01</span>
+                <p>
+                    Merancang dan merealisasikan sistem pemilahan sampah
+                    otomatis yang mengintegrasikan sensor kapasitif,
+                    induktif, inframerah, dan ultrasonik berbasis
+                    mikrokontroler Arduino Nano.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>02</span>
+                <p>
+                    Menguji ketepatan sensor dalam mendeteksi jenis dan
+                    volume sampah.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>03</span>
+                <p>
+                    Menampilkan informasi hasil sortir dan volume tempat
+                    sampah pada LCD 16×2 secara informatif.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SISTEM & PERANCANGAN -->
+<section class="project-detail-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">03</p>
+            <h2>Sistem & Perancangan</h2>
+        </div>
+
+        <div class="project-detail-content">
+
+            <p>
+                Sistem dirancang menggunakan Arduino Nano sebagai
+                mikrokontroler utama. Sensor inframerah, induktif, dan
+                kapasitif digunakan untuk mendeteksi keberadaan serta
+                karakteristik sampah, sedangkan tiga sensor ultrasonik
+                digunakan untuk mengukur volume pada masing-masing
+                tempat sampah.
+            </p>
+
+            <p>
+                Hasil pembacaan sensor diproses oleh Arduino Nano dan
+                digunakan untuk menentukan arah pemilahan melalui dua
+                buah servo MG996R. Informasi jenis sampah dan volume
+                tempat sampah ditampilkan menggunakan LCD 16×2 I2C.
+            </p>
+
+        </div>
+
+
+        <div class="parameter-table-wrapper" style="margin-top: 40px;">
+
+            <table class="parameter-table">
+
+                <thead>
+                    <tr>
+                        <th>Komponen</th>
+                        <th>Pin</th>
+                        <th>Fungsi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Baterai / Adaptor DC 12V</td>
+                        <td>Vin Step Down</td>
+                        <td>
+                            Sumber daya utama sistem.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Step Down Converter (12V → 5V)</td>
+                        <td>
+                            VCC → Battery<br>
+                            OUT → Vin Arduino
+                        </td>
+                        <td>
+                            Menurunkan tegangan dari sumber 12V menjadi
+                            5V untuk Arduino dan sensor.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Inframerah E18-D80NK</td>
+                        <td>VCC 5V, GND, D4</td>
+                        <td>
+                            Mendeteksi keberadaan sampah sebagai trigger awal.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Induktif LJ12A3-4-Z/BX</td>
+                        <td>VCC 12V, GND, D3</td>
+                        <td>
+                            Mendeteksi sampah berbahan logam.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Kapasitif LJC18A3-H-Z/BY</td>
+                        <td>VCC 12V, GND, D2</td>
+                        <td>
+                            Mendeteksi plastik atau material anorganik.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Servo Kiri-Kanan</td>
+                        <td>VCC 5V, GND, D10</td>
+                        <td>
+                            Mengatur arah pemilahan sampah.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Servo Atas-Bawah</td>
+                        <td>VCC 5V, GND, D9</td>
+                        <td>
+                            Mengatur posisi mekanisme pemilah.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04 (Anorganik)</td>
+                        <td>
+                            VCC 5V, GND,<br>
+                            TRIG D7, ECHO D13
+                        </td>
+                        <td>
+                            Mengukur volume tempat sampah anorganik.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04 (Organik)</td>
+                        <td>
+                            VCC 5V, GND,<br>
+                            TRIG D5, ECHO D6
+                        </td>
+                        <td>
+                            Mengukur volume tempat sampah organik.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>HC-SR04 (Logam)</td>
+                        <td>
+                            VCC 5V, GND,<br>
+                            TRIG D11, ECHO D12
+                        </td>
+                        <td>
+                            Mengukur volume tempat sampah logam.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>LCD 16×2 I2C</td>
+                        <td>
+                            VCC 5V, GND,<br>
+                            SDA A4, SCL A5
+                        </td>
+                        <td>
+                            Menampilkan informasi jenis sampah dan
+                            volume tempat sampah.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Push Button</td>
+                        <td>GND, A3</td>
+                        <td>
+                            Mengganti mode tampilan LCD antara jenis
+                            sampah dan volume.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- DOKUMENTASI SISTEM -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">04</p>
+            <h2>Dokumentasi Sistem</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <!-- FOTO SISTEM -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-overview.jpg"
+                         alt="Smart Trash Sorter">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SISTEM UTAMA</span>
+                    <h3>Smart Trash Sorter</h3>
+                    <p>
+                        Dokumentasi keseluruhan sistem pemilah sampah pintar
+                        yang telah direalisasikan menggunakan Arduino Nano,
+                        sensor, servo, dan LCD 16×2.
+                    </p>
+                </div>
+            </div>
+
+            <!-- FLOWCHART -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-flowchart.jpg"
+                         alt="Flowchart sistem Smart Trash Sorter">
+                </div>
+
+                <div class="documentation-info">
+                    <span>PERANCANGAN SISTEM</span>
+                    <h3>Flowchart Sistem</h3>
+                    <p>
+                        Flowchart menggambarkan alur proses sistem mulai dari
+                        pembacaan sensor, identifikasi jenis sampah, proses
+                        pemilahan, hingga pembacaan volume tempat sampah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SKEMATIK -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-schematic.jpg"
+                         alt="Skematik sistem Smart Trash Sorter">
+                </div>
+
+                <div class="documentation-info">
+                    <span>PERANCANGAN HARDWARE</span>
+                    <h3>Skematik Sistem</h3>
+                    <p>
+                        Skematik menunjukkan hubungan antara Arduino Nano,
+                        sensor, servo, LCD 16×2, push button, serta rangkaian
+                        catu daya yang digunakan pada sistem.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- DOKUMENTASI KOMPONEN -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">05</p>
+            <h2>Dokumentasi Komponen</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <!-- SENSOR IR -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-ir.jpg"
+                         alt="Sensor inframerah E18-D80NK">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SENSOR INFRAMERAH</span>
+                    <h3>E18-D80NK</h3>
+                    <p>
+                        Digunakan untuk mendeteksi keberadaan sampah
+                        sebagai trigger awal proses pemilahan.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SENSOR INDUKTIF -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-inductive.jpg"
+                         alt="Sensor induktif LJ12A3-4-Z/BX">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SENSOR INDUKTIF</span>
+                    <h3>LJ12A3-4-Z/BX</h3>
+                    <p>
+                        Digunakan untuk mendeteksi material logam
+                        pada sampah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SENSOR KAPASITIF -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-capacitive.jpg"
+                         alt="Sensor kapasitif LJC18A3-H-Z/BY">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SENSOR KAPASITIF</span>
+                    <h3>LJC18A3-H-Z/BY</h3>
+                    <p>
+                        Digunakan sebagai bagian dari proses
+                        identifikasi material sampah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SENSOR ULTRASONIK -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-ultrasonic.jpg"
+                         alt="Sensor ultrasonik HC-SR04">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SENSOR ULTRASONIK</span>
+                    <h3>HC-SR04</h3>
+                    <p>
+                        Tiga sensor digunakan untuk mengukur volume
+                        masing-masing tempat sampah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- SERVO -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-servo.jpg"
+                         alt="Servo motor MG996R">
+                </div>
+
+                <div class="documentation-info">
+                    <span>AKTUATOR</span>
+                    <h3>Servo MG996R</h3>
+                    <p>
+                        Dua servo digunakan untuk mengatur mekanisme
+                        dan arah pemilahan sampah.
+                    </p>
+                </div>
+            </div>
+
+            <!-- LCD -->
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project02/project02-lcd.jpg"
+                         alt="LCD 16x2 I2C">
+                </div>
+
+                <div class="documentation-info">
+                    <span>DISPLAY</span>
+                    <h3>LCD 16×2 I2C</h3>
+                    <p>
+                        Digunakan untuk menampilkan informasi jenis
+                        sampah dan volume tempat sampah.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- IMPLEMENTASI PROGRAM -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">06</p>
+            <h2>Implementasi Program</h2>
+        </div>
+
+        <div class="documentation-card code-documentation">
+
+            <div class="documentation-image code-image">
+                <img src="images/project02/project02-code.jpg"
+                     alt="Kode program sistem Smart Trash Sorter">
+            </div>
+
+            <div class="documentation-info">
+                <span>ARDUINO NANO</span>
+                <h3>Program Sistem Pemilahan Sampah</h3>
+                <p>
+                    <p>
+    Program digunakan untuk melakukan kalibrasi sensor dan aktuator
+    agar dapat bekerja sesuai dengan tujuan sistem. Program juga
+    mengatur pembacaan sensor, menentukan kategori sampah,
+    mengendalikan pergerakan dua servo MG996R, serta menampilkan
+    informasi sistem pada LCD 16×2.
+</p>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- METODE PENGUJIAN -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">07</p>
+            <h2>Metode Pengujian</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pengujian Sensor Jenis Sampah</h3>
+                    <p>
+                        Pengujian dilakukan untuk mengetahui kemampuan sensor
+                        dalam mendeteksi karakteristik sampah sesuai dengan
+                        fungsi masing-masing sensor. Sensor inframerah
+                        digunakan untuk mendeteksi keberadaan sampah,
+                        sensor induktif untuk mendeteksi material logam,
+                        dan sensor kapasitif untuk membantu identifikasi
+                        material sampah.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Pengujian Sensor Volume</h3>
+                    <p>
+                        Tiga sensor ultrasonik HC-SR04 diuji untuk mengukur
+                        volume pada masing-masing tempat sampah. Hasil
+                        pembacaan sensor digunakan untuk mengetahui kondisi
+                        volume tempat sampah dan ditampilkan melalui LCD 16×2.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Pengujian Mekanisme Pemilahan</h3>
+                    <p>
+                        Pengujian dilakukan dengan memberikan sampah pada
+                        sistem dan mengamati respons dua servo MG996R.
+                        Pergerakan servo diamati untuk memastikan mekanisme
+                        pemilahan dapat bergerak sesuai dengan kategori
+                        sampah yang terdeteksi oleh sensor.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Pengujian Sistem Terintegrasi</h3>
+                    <p>
+                        Pengujian dilakukan dengan mengoperasikan seluruh
+                        bagian sistem secara bersamaan, mulai dari deteksi
+                        keberadaan sampah, identifikasi jenis sampah,
+                        pengendalian aktuator, hingga pengukuran volume
+                        tempat sampah dan tampilan informasi pada LCD 16×2.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- HASIL PENGUJIAN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">08</p>
+            <h2>Hasil Pengujian</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Pengujian dilakukan untuk mengetahui kemampuan sensor dalam
+                mendeteksi jenis sampah dan mengukur volume tempat sampah,
+                serta memastikan mekanisme pemilahan dapat bekerja sesuai
+                dengan rancangan sistem.
+            </p>
+        </div>
+
+        <div class="parameter-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Komponen</th>
+                        <th>Hasil Pengujian</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Sensor IR E18-D80NK</td>
+                        <td>80%</td>
+                        <td>
+                            Mendeteksi keberadaan sampah, tetapi hasil
+                            dipengaruhi oleh warna dan permukaan objek,
+                            terutama pada objek berwarna hitam.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Induktif</td>
+                        <td>80%</td>
+                        <td>
+                            Berhasil mendeteksi material logam sesuai
+                            skenario pengujian.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Kapasitif</td>
+                        <td>80%</td>
+                        <td>
+                            Berhasil membantu mendeteksi material organik
+                            dan non-logam, tetapi dapat merespons material
+                            logam yang berada di sekitar sensor.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Ultrasonik HC-SR04</td>
+                        <td>100%</td>
+                        <td>
+                            Berhasil digunakan untuk mengukur volume
+                            masing-masing tempat sampah.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sistem Pemilahan</td>
+                        <td>Berhasil</td>
+                        <td>
+                            Sistem berhasil mengintegrasikan sensor,
+                            Arduino Nano, dua servo MG996R, dan LCD 16×2
+                            sesuai skenario pengujian.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECT SUMMARY -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">09</p>
+            <h2>Project Summary</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Smart Trash Sorter merupakan sistem pemilah sampah otomatis
+                yang mengintegrasikan Arduino Nano, sensor inframerah,
+                sensor induktif, sensor kapasitif, sensor ultrasonik,
+                aktuator servo, dan LCD 16×2. Sistem dirancang untuk
+                mendeteksi karakteristik sampah, mengarahkan proses
+                pemilahan berdasarkan hasil pembacaan sensor, serta
+                memantau volume masing-masing tempat sampah.
+            </p>
+
+            <p>
+                Berdasarkan hasil pengujian, sensor yang digunakan dapat
+                menjalankan fungsi sesuai dengan perancangannya dengan
+                tingkat hasil pengujian yang berbeda pada setiap sensor.
+                Sensor ultrasonik menunjukkan hasil pengujian sebesar 100%,
+                sedangkan sensor inframerah, induktif, dan kapasitif
+                masing-masing menunjukkan hasil pengujian sebesar 80%.
+                Sistem secara keseluruhan berhasil mengintegrasikan proses
+                deteksi, pemilahan, pengukuran volume, dan tampilan informasi
+                sesuai dengan skenario pengujian.
+            </p>
+        </div>
+
+        <div class="project-tags">
+            <span>Arduino Nano</span>
+            <span>Sensor</span>
+            <span>Automation</span>
+            <span>Waste Sorting</span>
+            <span>Servo Control</span>
+            <span>LCD 16×2</span>
+        </div>
+
+    </div>
+</section>
+
+        <!-- LOGIKA PEMILAHAN -->
+        <div class="result-subheading">
+            <h3>Logika Pemilahan Sampah</h3>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span>01</span>
+                <p>
+                    Sensor inframerah E18-D80NK mendeteksi keberadaan
+                    sampah sebagai trigger awal proses pemilahan.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>02</span>
+                <p>
+                    Jika sensor inframerah, sensor induktif, dan sensor
+                    kapasitif mendeteksi objek, sampah dikategorikan
+                    sebagai sampah logam.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>03</span>
+                <p>
+                    Jika sensor inframerah dan sensor kapasitif mendeteksi
+                    objek, sampah dikategorikan sebagai sampah organik.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>04</span>
+                <p>
+                    Jika sensor inframerah mendeteksi objek sedangkan
+                    sensor induktif dan sensor kapasitif tidak mendeteksi
+                    objek, sampah dikategorikan sebagai sampah
+                    non-organik.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>05</span>
+                <p>
+                    Hasil klasifikasi diproses oleh Arduino Nano kemudian
+                    diteruskan ke dua buah servo MG996R untuk mengatur
+                    mekanisme pemilahan sampah.
+                </p>
+            </div>
+
+        </div>
+
+</section>
+    </main>
+
+<!-- FOOTER -->
+<footer class="project-footer">
+    <div class="container">
+
+        <div class="project-footer-content">
+
+            <div>
+                <p class="project-footer-label">
+                    ELECTRICAL ENGINEERING PORTFOLIO
+                </p>
+
+                <h2>
+                    Yohan Ridho Maulana.
+                </h2>
+
+                <p>
+                    Electrical Engineering | Maintenance |
+                    Instrumentation | Automation
+                </p>
+            </div>
+
+            <a href="index.html" class="project-back">
+                ← Kembali ke Portfolio
+            </a>
+
+        </div>
+
+        <div class="project-footer-bottom">
+            <p>
+                © 2026 Yohan Ridho Maulana. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
+ 

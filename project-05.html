@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 05 — DC Voltmeter & Ammeter | Yohan Ridho Maulana</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PROJECT HERO -->
+    <section class="project-detail-hero">
+
+        <div class="container">
+
+            <p class="eyebrow">PROJECT 05</p>
+
+            <h1>
+                DC Voltmeter
+                <span>& Ammeter</span>
+            </h1>
+
+            <p class="project-detail-intro">
+                Perancangan alat ukur tegangan dan arus DC berbasis
+                Arduino Uno menggunakan sensor ACS712 dan sensor
+                tegangan 0–25V, dengan hasil pengukuran ditampilkan
+                secara langsung melalui LCD 16×2 I2C.
+            </p>
+
+            <div class="project-detail-tags">
+                <span>Arduino Uno</span>
+                <span>ACS712</span>
+                <span>Voltage Sensor 0–25V</span>
+                <span>LCD 16×2 I2C</span>
+                <span>DC Measurement</span>
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+<!-- OVERVIEW -->
+<section class="project-detail-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">01</p>
+            <h2>Overview</h2>
+        </div>
+
+        <div class="project-detail-content">
+
+            <p>
+                Project ini merupakan perancangan dan pembuatan alat ukur
+                tegangan serta arus listrik searah (DC) menggunakan
+                Arduino Uno sebagai pusat pengolahan data. Alat dirancang
+                untuk mengukur kedua besaran listrik secara bersamaan
+                dalam satu perangkat.
+            </p>
+
+            <p>
+                Pengukuran dilakukan menggunakan sensor tegangan 0–25V
+                dan sensor arus ACS712. Sinyal analog dari kedua sensor
+                diproses oleh Arduino Uno melalui ADC, kemudian hasil
+                pengukuran ditampilkan secara langsung pada LCD 16×2 I2C.
+            </p>
+
+            <p>
+                Pengujian dilakukan menggunakan beberapa jenis beban,
+                yaitu baterai, motor DC, dan LED. Hasil pembacaan alat
+                dibandingkan dengan multimeter standar pabrik untuk
+                mengetahui selisih pengukuran tegangan dan arus.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TUJUAN -->
+<section class="project-detail-section project-detail-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">02</p>
+            <h2>Tujuan</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span>01</span>
+                <p>
+                    Merancang dan merealisasikan alat ukur tegangan
+                    dan arus listrik DC menggunakan sensor tegangan
+                    dan sensor arus sebagai pendeteksi besaran listrik.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>02</span>
+                <p>
+                    Menggunakan Arduino Uno sebagai mikrokontroler
+                    untuk mengolah sinyal analog dari sensor menjadi
+                    data digital.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>03</span>
+                <p>
+                    Menampilkan hasil pengukuran tegangan dan arus
+                    secara langsung melalui LCD 16×2 I2C.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>04</span>
+                <p>
+                    Menguji kinerja alat pada beberapa jenis beban
+                    dan membandingkan hasilnya dengan multimeter
+                    standar sebagai alat ukur pembanding.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SISTEM & PERANCANGAN -->
+<section class="project-detail-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">03</p>
+            <h2>Sistem & Perancangan</h2>
+        </div>
+
+        <div class="project-detail-content">
+
+            <p>
+                Sistem dirancang menggunakan Arduino Uno sebagai
+                pengendali utama yang menerima sinyal analog dari
+                sensor arus ACS712 dan sensor tegangan 0–25V.
+                Sinyal tersebut dikonversi menjadi data digital
+                melalui ADC internal mikrokontroler untuk diolah
+                menjadi nilai tegangan dan arus DC.
+            </p>
+
+            <p>
+                Hasil pengolahan data kemudian dikirimkan ke LCD
+                16×2 I2C agar nilai tegangan dan arus dapat
+                ditampilkan secara langsung pada satu perangkat.
+                Dengan demikian, pengguna dapat memantau kedua
+                parameter listrik dari beban yang sedang diuji.
+            </p>
+
+        </div>
+
+        <div class="parameter-table-wrapper" style="margin-top: 40px;">
+
+            <table class="parameter-table">
+
+                <thead>
+                    <tr>
+                        <th>Komponen</th>
+                        <th>Fungsi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Arduino Uno</td>
+                        <td>
+                            Mengolah sinyal analog dari sensor,
+                            melakukan konversi ADC, dan mengatur
+                            tampilan hasil pengukuran.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Arus ACS712</td>
+                        <td>
+                            Mendeteksi arus listrik DC yang mengalir
+                            pada rangkaian beban dan mengirimkan
+                            sinyal analog ke Arduino Uno.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Sensor Tegangan 0–25V (OV-25V)</td>
+                        <td>
+                            Mendeteksi tegangan DC pada rangkaian
+                            dan memberikan sinyal analog untuk
+                            diproses oleh Arduino Uno.
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>LCD 16×2 I2C</td>
+                        <td>
+                            Menampilkan hasil pengukuran tegangan
+                            dan arus secara langsung.
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- DOKUMENTASI SISTEM -->
+<section class="project-detail-section project-detail-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">04</p>
+            <h2>Dokumentasi Sistem</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project05/tampak-depan-alat.jpg"
+                         alt="Tampak depan alat DC Voltmeter dan Ammeter">
+                </div>
+                <div class="documentation-info">
+                    <h3>Tampak Depan Alat</h3>
+                    <p>Dokumentasi perangkat hasil perancangan dan perakitan.</p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project05/skematik-voltmeter.jpg"
+                         alt="Skematik rangkaian DC Voltmeter dan Ammeter">
+                </div>
+                <div class="documentation-info">
+                    <h3>Skematik Rangkaian</h3>
+                    <p>Rancangan hubungan antara Arduino Uno, sensor, dan LCD.</p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project05/program-voltmeter.jpg"
+                         alt="Program DC Voltmeter dan Ammeter">
+                </div>
+                <div class="documentation-info">
+                    <h3>Program Sistem</h3>
+                    <p>Cuplikan program untuk membaca sensor dan menampilkan hasil pengukuran.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div><!-- IMPLEMENTASI PROGRAM -->
+<section class="project-detail-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">05</p>
+            <h2>Implementasi Program</h2>
+        </div>
+
+        <div class="project-detail-content">
+
+            <p>
+                Program pada Arduino Uno berfungsi sebagai pusat
+                pengolahan data pengukuran. Mikrokontroler membaca
+                sinyal analog dari sensor tegangan 0–25V dan sensor
+                arus ACS712 melalui ADC, kemudian mengolah data
+                tersebut menjadi nilai tegangan dan arus DC.
+            </p>
+
+            <p>
+                Nilai hasil pengolahan ditampilkan secara langsung
+                pada LCD 16×2 I2C sehingga pengguna dapat memantau
+                tegangan dan arus dari beban yang sedang diuji.
+                Implementasi program menjadi bagian dari sistem
+                pengukuran yang kemudian diuji menggunakan beberapa
+                variasi beban dan dibandingkan dengan multimeter
+                ZOTEK ZT219.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+</section>
+
+<!-- METODE PENGUJIAN -->
+<section class="project-detail-section project-detail-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">06</p>
+            <h2>Metode Pengujian</h2>
+        </div>
+
+        <div class="project-detail-content">
+
+            <p>
+                Pengujian dilakukan untuk mengetahui kinerja alat ukur
+                tegangan dan arus DC berbasis Arduino Uno. Pengukuran
+                dilakukan pada beberapa variasi beban, yaitu baterai,
+                motor DC, LED hijau, dan LED merah. Data dari alat
+                ditampilkan melalui LCD 16×2 I2C, kemudian dibandingkan
+                dengan hasil pengukuran multimeter standar ZOTEK ZT219.
+            </p>
+
+            <p>
+                Pengujian tegangan dilakukan pada baterai dengan beberapa
+                konfigurasi, sedangkan pengujian arus dilakukan pada
+                motor DC dan LED. Nilai hasil pengukuran dari alat dan
+                multimeter dicatat untuk setiap beban, kemudian dihitung
+                nilai selisih relatifnya sebagai dasar evaluasi
+                perbandingan pembacaan.
+            </p>
+
+        </div>
+
+        <div class="detail-list" style="margin-top: 30px;">
+
+            <div class="detail-item">
+                <span>01</span>
+                <p>
+                    Menyiapkan alat ukur DC Voltmeter & Ammeter berbasis
+                    Arduino Uno, beban pengujian, dan multimeter
+                    pembanding ZOTEK ZT219.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>02</span>
+                <p>
+                    Mengukur tegangan pada baterai dan mencatat nilai
+                    yang ditampilkan alat serta nilai yang terbaca
+                    pada multimeter.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>03</span>
+                <p>
+                    Mengukur arus pada motor DC, LED hijau, dan LED
+                    merah. Hasil pembacaan kedua alat dicatat untuk
+                    setiap variasi beban.
+                </p>
+            </div>
+
+            <div class="detail-item">
+                <span>04</span>
+                <p>
+                    Membandingkan hasil pengukuran alat dengan
+                    multimeter ZOTEK ZT219 dan menghitung nilai
+                    selisih relatif untuk mengevaluasi kinerja alat.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- HASIL PENGUJIAN -->
+<section class="project-detail-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">07</p>
+            <h2>Hasil Pengujian</h2>
+        </div>
+
+        <div class="project-detail-content">
+            <p>
+                Pengujian dilakukan dengan membandingkan hasil pengukuran
+                alat DC Voltmeter & Ammeter berbasis Arduino Uno dengan
+                multimeter ZOTEK ZT219. Pengukuran tegangan dilakukan
+                pada beberapa konfigurasi baterai, sedangkan pengukuran
+                arus dilakukan pada motor DC, LED hijau, dan LED merah.
+                Nilai selisih relatif digunakan untuk melihat perbedaan
+                pembacaan antara alat yang dirancang dan alat pembanding.
+            </p>
+        </div>
+
+        <!-- TABEL PENGUJIAN TEGANGAN -->
+        <div class="result-subheading">
+            <h3>Pengujian Pengukuran Tegangan</h3>
+        </div>
+
+        <div class="parameter-table-wrapper">
+            <table class="parameter-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Beban</th>
+                        <th>Alat Rancangan</th>
+                        <th>ZOTEK ZT219</th>
+                        <th>Nilai Selisih</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Baterai 1</td>
+                        <td>3,10 V</td>
+                        <td>3,385 V</td>
+                        <td>8,28%</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>Baterai 2</td>
+                        <td>4,14 V</td>
+                        <td>4,106 V</td>
+                        <td>0,83%</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>Baterai Seri</td>
+                        <td>6,10 V</td>
+                        <td>7,479 V</td>
+                        <td>18,43%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="project-detail-content">
+            <p>
+                Pada pengujian tegangan, selisih terkecil diperoleh pada
+                Baterai 2 sebesar 0,83%, dengan pembacaan 4,14 V pada
+                alat rancangan dan 4,106 V pada multimeter. Sementara
+                itu, selisih terbesar terdapat pada pengujian Baterai
+                Seri, yaitu 18,43%.
+            </p>
+        </div>
+
+        <!-- TABEL PENGUJIAN ARUS -->
+        <div class="result-subheading">
+            <h3>Pengujian Pengukuran Arus</h3>
+        </div>
+
+        <div class="parameter-table-wrapper">
+            <table class="parameter-table">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Beban</th>
+                        <th>Alat Rancangan</th>
+                        <th>ZOTEK ZT219</th>
+                        <th>Nilai Selisih</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Motor DC</td>
+                        <td>3,08 A</td>
+                        <td>3,114 A</td>
+                        <td>1,09%</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>LED Hijau</td>
+                        <td>15,8 mA</td>
+                        <td>17,5 mA</td>
+                        <td>9,71%</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>LED Merah</td>
+                        <td>12,5 mA</td>
+                        <td>14,2 mA</td>
+                        <td>11,97%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="project-detail-content">
+            <p>
+                Pada pengujian arus, selisih terkecil terdapat pada
+                beban Motor DC sebesar 1,09%. Pengukuran pada LED
+                hijau menghasilkan selisih 9,71%, sedangkan LED
+                merah menunjukkan selisih 11,97%.
+            </p>
+
+            <p>
+                Hasil pengujian menunjukkan bahwa pembacaan alat
+                rancangan mendekati hasil multimeter pada beberapa
+                beban, tetapi masih terdapat perbedaan yang bervariasi
+                pada jenis beban lainnya.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- PROJECT SUMMARY -->
+<section class="project-detail-section project-detail-dark">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">08</p>
+            <h2>Project Summary</h2>
+        </div>
+
+        <div class="project-detail-content">
+            <p>
+                DC Voltmeter & Ammeter merupakan alat ukur listrik
+                searah yang dirancang menggunakan Arduino Uno,
+                sensor arus ACS712, sensor tegangan 0–25V, dan
+                LCD 16×2 I2C. Alat dapat mengukur tegangan dan
+                arus secara bersamaan serta menampilkan hasilnya
+                secara langsung.
+            </p>
+        </div>
+
+        <div class="summary-points">
+
+            <div class="summary-point">
+                <span>01</span>
+                <div>
+                    <h3>Pengukuran Terintegrasi</h3>
+                    <p>
+                        Mengukur tegangan dan arus DC dalam satu
+                        perangkat dengan pembacaan langsung pada LCD.
+                    </p>
+                </div>
+            </div>
+
+            <div class="summary-point">
+                <span>02</span>
+                <div>
+                    <h3>Pemrosesan Mikrokontroler</h3>
+                    <p>
+                        Arduino Uno mengolah sinyal analog dari
+                        sensor melalui ADC menjadi nilai pengukuran.
+                    </p>
+                </div>
+            </div>
+
+            <div class="summary-point">
+                <span>03</span>
+                <div>
+                    <h3>Perbandingan dengan Multimeter</h3>
+                    <p>
+                        Pengujian pada baterai, motor DC, dan LED
+                        dilakukan dengan membandingkan hasil alat
+                        terhadap multimeter ZOTEK ZT219.
+                    </p>
+                </div>
+            </div>
+
+            <div class="summary-point">
+                <span>04</span>
+                <div>
+                    <h3>Evaluasi Kinerja</h3>
+                    <p>
+                        Hasil menunjukkan pembacaan yang mendekati
+                        multimeter pada beberapa beban, dengan
+                        selisih yang bervariasi pada beban lainnya.
+                        Kalibrasi dapat menjadi pengembangan lanjutan.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- FOOTER -->
+<footer class="project-footer">
+    <div class="container">
+
+        <div class="project-footer-content">
+
+            <div>
+                <p class="project-footer-label">
+                    ELECTRICAL ENGINEERING PORTFOLIO
+                </p>
+
+                <h2>
+                    Yohan Ridho Maulana.
+                </h2>
+
+                <p>
+                    Electrical Engineering | Maintenance |
+                    Instrumentation | Automation
+                </p>
+            </div>
+
+            <a href="index.html" class="project-back">
+                ← Kembali ke Portfolio
+            </a>
+
+        </div>
+
+        <div class="project-footer-bottom">
+            <p>
+                © 2026 Yohan Ridho Maulana. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

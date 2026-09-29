@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 01 — Analisis Komunikasi Serial ESP32-S3 | Yohan Ridho Maulana</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+                YOHAN<span>.</span>
+            </a>
+
+            <nav>
+                <a href="index.html">Beranda</a>
+                <a href="index.html#about">Tentang</a>
+                <a href="index.html#education">Pendidikan</a>
+                <a href="index.html#skills">Keahlian</a>
+                <a href="index.html#projects">Project</a>
+                <a href="index.html#experience">Pengalaman</a>
+                <a href="index.html#certifications">Sertifikasi</a>
+                <a href="index.html#contact">Kontak</a>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- PROJECT HERO -->
+    <main>
+
+        <section class="project-detail-hero">
+            <div class="container">
+
+                <p class="eyebrow">PROJECT 01</p>
+
+                <h1>
+                    Analisis Komunikasi Serial
+                    <span>ESP32-S3</span>
+                </h1>
+
+                <p class="project-detail-intro">
+                    Analisis pengaruh variasi panjang kabel terhadap performa
+                    komunikasi serial UART, I2C, dan SPI pada ESP32-S3
+                    menggunakan metode Checksum XOR.
+                </p>
+
+                <div class="project-detail-tags">
+                    <span>ESP32-S3</span>
+                    <span>UART</span>
+                    <span>I2C</span>
+                    <span>SPI</span>
+                    <span>Checksum XOR</span>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- OVERVIEW -->
+        <section class="project-detail-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-number">01</p>
+                    <h2>Overview</h2>
+                </div>
+
+                <div class="project-detail-content">
+
+                    <p>
+                        Project ini menganalisis performa komunikasi serial
+                        UART, I2C, dan SPI pada dua ESP32-S3 berdasarkan
+                        parameter throughput dan error rate.
+                    </p>
+
+                    <p>
+                        Pengujian dilakukan dengan variasi ukuran data dan
+                        panjang kabel untuk melihat perubahan performa
+                        komunikasi serta pengaruh panjang kabel terhadap
+                        keberhasilan pengiriman data.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- TUJUAN -->
+        <section class="project-detail-section project-detail-dark">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-number">02</p>
+                    <h2>Tujuan</h2>
+                </div>
+
+                <div class="detail-list">
+
+                    <div class="detail-item">
+                        <span>01</span>
+                        <p>
+                            Menganalisis performa komunikasi UART, I2C, dan SPI
+                            pada ESP32-S3 berdasarkan throughput dan error rate.
+                        </p>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>02</span>
+                        <p>
+                            Menganalisis pengaruh variasi panjang kabel terhadap
+                            performa komunikasi.
+                        </p>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>03</span>
+                        <p>
+                            Menggunakan Checksum XOR untuk mendeteksi
+                            ketidaksesuaian data yang dikirim dan diterima.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SYSTEM DESIGN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">03</p>
+            <h2>Sistem & Perancangan</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project01/project01-flowchart.jpg"
+                         alt="Flowchart sistem komunikasi serial ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>FLOWCHART SISTEM</span>
+                    <h3>Alur Pengujian</h3>
+                    <p>
+                        Flowchart menunjukkan tahapan proses pengujian
+                        komunikasi serial mulai dari inisialisasi sistem,
+                        pemilihan protokol dan panjang kabel, proses
+                        pengiriman serta penerimaan data, hingga pencatatan
+                        hasil pengujian.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project01/project01-schematic.jpg"
+                         alt="Skematik wiring komunikasi serial ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SCHEMATIC</span>
+                    <h3>Skematik Wiring</h3>
+                    <p>
+                        Skematik menunjukkan konfigurasi hubungan antara
+                        transmitter dan receiver ESP32-S3 yang digunakan
+                        dalam pengujian UART, I2C, dan SPI.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- HARDWARE DOCUMENTATION -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">04</p>
+            <h2>Dokumentasi Hardware</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+
+                <div class="documentation-image">
+                    <img src="images/project01/project01-uart.jpg"
+                         alt="Hardware pengujian komunikasi UART ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>UART</span>
+                    <h3>Pengujian UART</h3>
+                    <p>
+                        Konfigurasi dua ESP32-S3 yang digunakan untuk
+                        pengujian komunikasi UART sebagai transmitter
+                        dan receiver.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="documentation-card">
+
+                <div class="documentation-image">
+                    <img src="images/project01/project01-i2c.jpg"
+                         alt="Hardware pengujian komunikasi I2C ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>I2C</span>
+                    <h3>Pengujian I2C</h3>
+                    <p>
+                        Konfigurasi dua ESP32-S3 yang digunakan untuk
+                        pengujian komunikasi I2C sebagai transmitter
+                        dan receiver.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="documentation-card">
+
+                <div class="documentation-image">
+                    <img src="images/project01/project01-spi.jpg"
+                         alt="Hardware pengujian komunikasi SPI ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SPI</span>
+                    <h3>Pengujian SPI</h3>
+                    <p>
+                        Konfigurasi dua ESP32-S3 yang digunakan untuk
+                        pengujian komunikasi SPI sebagai transmitter
+                        dan receiver.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SERIAL MONITOR DOCUMENTATION -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">05</p>
+            <h2>Dokumentasi Serial Monitor</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+
+                <div class="documentation-image">
+                    <img src="images/project01/project01-serial-uart.jpg"
+                         alt="Serial Monitor pengujian UART ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>UART</span>
+                    <h3>Hasil Pengujian UART</h3>
+                    <p>
+                        Tampilan Serial Monitor saat proses pengiriman
+                        dan penerimaan data pada komunikasi UART.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="documentation-card">
+
+                <div class="documentation-image">
+                    <img src="images/project01/project01-serial-i2c.jpg"
+                         alt="Serial Monitor pengujian I2C ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>I2C</span>
+                    <h3>Hasil Pengujian I2C</h3>
+                    <p>
+                        Tampilan Serial Monitor saat proses pengiriman
+                        dan penerimaan data pada komunikasi I2C.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="documentation-card">
+
+                <div class="documentation-image">
+                    <img src="images/project01/project01-serial-spi.jpg"
+                         alt="Serial Monitor pengujian SPI ESP32-S3">
+                </div>
+
+                <div class="documentation-info">
+                    <span>SPI</span>
+                    <h3>Hasil Pengujian SPI</h3>
+                    <p>
+                        Tampilan Serial Monitor saat proses pengiriman
+                        dan penerimaan data pada komunikasi SPI.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+        <!-- METODE -->
+        <section class="project-detail-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-number">03</p>
+                    <h2>Metode Pengujian</h2>
+                </div>
+
+                <div class="method-grid">
+
+                    <div class="method-card">
+                        <span class="method-label">CONTROLLER</span>
+                        <h3>2× ESP32-S3</h3>
+                        <p>
+                            Satu ESP32-S3 digunakan sebagai pengirim dan satu
+                            sebagai penerima data.
+                        </p>
+                    </div>
+
+                    <div class="method-card">
+                        <span class="method-label">PROTOCOL</span>
+                        <h3>UART / I2C / SPI</h3>
+                        <p>
+                            Tiga protokol komunikasi serial digunakan sebagai
+                            objek perbandingan.
+                        </p>
+                    </div>
+
+                    <div class="method-card">
+                        <span class="method-label">PACKET</span>
+                        <h3>1.000 / 5.000 / 10.000</h3>
+                        <p>
+                            Pengujian dilakukan menggunakan beberapa jumlah
+                            paket data.
+                        </p>
+                    </div>
+
+                    <div class="method-card">
+                        <span class="method-label">CABLE</span>
+                        <h3>10 / 50 / 100 cm</h3>
+                        <p>
+                            Variasi panjang kabel digunakan untuk melihat
+                            perubahan performa komunikasi.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FORMAT DATA -->
+       <!-- FORMAT DATA -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">04</p>
+            <h2>Format Data</h2>
+        </div>
+
+        <div class="packet-format">
+
+            <div class="packet-item">
+                <span>SOF</span>
+                <small>2 byte</small>
+            </div>
+
+            <div class="packet-arrow">→</div>
+
+            <div class="packet-item">
+                <span>SEQUENCE</span>
+                <small>2 byte</small>
+            </div>
+
+            <div class="packet-arrow">→</div>
+
+            <div class="packet-item">
+                <span>LENGTH</span>
+                <small>1 byte</small>
+            </div>
+
+            <div class="packet-arrow">→</div>
+
+            <div class="packet-item">
+                <span>PAYLOAD</span>
+                <small>16 byte</small>
+            </div>
+
+            <div class="packet-arrow">→</div>
+
+            <div class="packet-item">
+                <span>CHECKSUM XOR</span>
+                <small>1 byte</small>
+            </div>
+
+        </div>
+
+        <div class="parameter-table-wrapper" style="margin-top: 35px;">
+
+            <table class="parameter-table">
+
+                <thead>
+                    <tr>
+                        <th>Bagian Paket</th>
+                        <th>Ukuran</th>
+                        <th>Fungsi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Penanda awal</td>
+                        <td>2 byte</td>
+                        <td>Menandai awal paket data</td>
+                    </tr>
+
+                    <tr>
+                        <td>Nomor urut</td>
+                        <td>2 byte</td>
+                        <td>Mengidentifikasi urutan paket</td>
+                    </tr>
+
+                    <tr>
+                        <td>Panjang <i>payload</i></td>
+                        <td>1 byte</td>
+                        <td>Menyimpan ukuran <i>payload</i></td>
+                    </tr>
+
+                    <tr>
+                        <td><i>Payload</i></td>
+                        <td>16 byte</td>
+                        <td>Data utama</td>
+                    </tr>
+
+                    <tr>
+                        <td><i>Checksum XOR</i></td>
+                        <td>1 byte</td>
+                        <td>Nilai pemeriksa paket</td>
+                    </tr>
+
+                    <tr>
+                        <td>Total</td>
+                        <td>22 byte</td>
+                        <td>Ukuran keseluruhan paket</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <p class="detail-note">
+            Checksum XOR digunakan sebagai nilai pemeriksa untuk mendeteksi
+            ketidaksesuaian data pada paket yang diterima.
+        </p>
+
+    </div>
+</section>
+
+<div class="checksum-code-section">
+
+    <div class="checksum-code-block">
+        <span class="method-label">MASTER / TRANSMITTER</span>
+
+        <h3>Pembentukan Paket dan Checksum</h3>
+
+        <pre><code>packet[2] = (seq >> 8) & 0xFF;
+packet[3] = seq & 0xFF;
+packet[4] = PAYLOAD_SIZE;
+
+for (int i = 0; i &lt; PAYLOAD_SIZE; i++) {
+    packet[5 + i] = (uint8_t)((seq + i) % 256);
+}
+
+packet[PACKET_SIZE - 1] =
+    hitungChecksumXOR(&amp;packet[2], 3 + PAYLOAD_SIZE);</code></pre>
+    </div>
+
+
+    <div class="checksum-code-block">
+        <span class="method-label">SLAVE / RECEIVER</span>
+
+        <h3>Pemeriksaan Checksum</h3>
+
+        <pre><code>uint8_t checksumTerima = packet[PACKET_SIZE - 1];
+
+uint8_t checksumHitung =
+    hitungChecksumXOR(&amp;packet[2],
+                      3 + PAYLOAD_SIZE);
+
+if (checksumTerima != checksumHitung) {
+    paketValid = false;
+}</code></pre>
+    </div>
+
+</div>
+
+<p class="detail-note">
+    Pada sisi master, nilai Checksum XOR dihitung dari bagian sequence,
+    panjang payload, dan payload. Pada sisi slave, checksum yang diterima
+    dibandingkan dengan checksum yang dihitung kembali menggunakan data
+    paket yang diterima. Jika kedua nilai berbeda, paket dinyatakan tidak valid.
+</p>
+
+        <!-- PARAMETER -->
+        <section class="project-detail-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-number">05</p>
+                    <h2>Parameter Pengujian</h2>
+                </div>
+
+                <div class="parameter-table-wrapper">
+
+                    <table class="parameter-table">
+
+                        <thead>
+                            <tr>
+                                <th>Parameter</th>
+                                <th>Keterangan</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Throughput</td>
+                                <td>
+                                    Kecepatan data yang berhasil diterima
+                                    selama proses komunikasi.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Error Rate</td>
+                                <td>
+                                    Persentase data yang mengalami
+                                    ketidaksesuaian berdasarkan pemeriksaan
+                                    Checksum XOR.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Panjang Kabel</td>
+                                <td>
+                                    10 cm, 50 cm, dan 100 cm.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Jumlah Paket</td>
+                                <td>
+                                    1.000, 5.000, dan 10.000 paket.
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Protokol</td>
+                                <td>
+                                    UART, I2C, dan SPI.
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- HASIL -->
+        <section class="project-detail-section project-detail-dark">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-number">06</p>
+                    <h2>Hasil Pengujian</h2>
+                </div>
+
+                <div class="result-intro">
+                    <p>
+                        Hasil berikut merupakan nilai rata-rata performa
+                        masing-masing protokol berdasarkan pengujian yang
+                        dilakukan.
+                    </p>
+                </div>
+
+                <div class="result-table-wrapper">
+
+                    <table class="result-table">
+
+                        <thead>
+                            <tr>
+                                <th>Protokol</th>
+                                <th>Throughput Rata-rata</th>
+                                <th>Error Rate</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>UART</td>
+                                <td>4.001,71 byte/s</td>
+                                <td>0,00%</td>
+                            </tr>
+
+                            <tr>
+                                <td>I2C</td>
+                                <td>2.286,71 byte/s</td>
+                                <td>0,00%</td>
+                            </tr>
+
+                            <tr>
+                                <td>SPI</td>
+                                <td>6.534,92 byte/s</td>
+                                <td>24,33%</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="result-subheading">
+                    <h3>Performa SPI Berdasarkan Panjang Kabel</h3>
+                </div>
+
+                <div class="result-table-wrapper">
+
+                    <table class="result-table">
+
+                        <thead>
+                            <tr>
+                                <th>Panjang Kabel</th>
+                                <th>Throughput</th>
+                                <th>Error Rate</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>10 cm</td>
+                                <td>7.909,71 byte/s</td>
+                                <td>1,16%</td>
+                            </tr>
+
+                            <tr>
+                                <td>50 cm</td>
+                                <td>7.379,80 byte/s</td>
+                                <td>11,42%</td>
+                            </tr>
+
+                            <tr>
+                                <td>100 cm</td>
+                                <td>4.315,24 byte/s</td>
+                                <td>60,41%</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- PENUTUP -->
+        <section class="project-detail-section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-number">07</p>
+                    <h2>Project Summary</h2>
+                </div>
+
+                <div class="project-summary">
+
+                    <p>
+                        Project ini memberikan pengalaman dalam implementasi
+                        komunikasi serial menggunakan ESP32-S3, pengujian
+                        beberapa protokol komunikasi, pengolahan data hasil
+                        pengujian, serta penerapan Checksum XOR sebagai metode
+                        pemeriksaan data.
+                    </p>
+
+                    <p>
+                        Pengujian menunjukkan adanya perbedaan performa
+                        throughput dan error rate antara UART, I2C, dan SPI
+                        pada variasi panjang kabel yang digunakan.
+                    </p>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- BACK TO PROJECT -->
+        <section class="project-navigation">
+            <div class="container">
+
+                <a href="index.html#projects" class="back-project">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Kembali ke Project
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+
+   <!-- FOOTER -->
+<footer class="project-footer">
+    <div class="container">
+
+        <div class="project-footer-content">
+
+            <div>
+                <p class="project-footer-label">
+                    ELECTRICAL ENGINEERING PORTFOLIO
+                </p>
+
+                <h2>
+                    Yohan Ridho Maulana.
+                </h2>
+
+                <p>
+                    Electrical Engineering | Maintenance |
+                    Instrumentation | Automation
+                </p>
+            </div>
+
+            <a href="index.html" class="project-back">
+                ← Kembali ke Portfolio
+            </a>
+
+        </div>
+
+        <div class="project-footer-bottom">
+            <p>
+                © 2026 Yohan Ridho Maulana. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

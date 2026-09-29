@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Project 07 — DC Power Supply | Yohan Ridho Maulana</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- PROJECT HERO -->
+    <section class="project-detail-hero">
+        <div class="container">
+
+            <p class="eyebrow">PROJECT 07</p>
+
+            <h1>
+                DC Power
+                <span>Supply</span>
+            </h1>
+
+            <p class="project-detail-intro">
+                Perancangan dan pembuatan catu daya DC dengan beberapa
+                pilihan tegangan keluaran tetap dan variabel untuk
+                memenuhi kebutuhan suplai daya pada modul laboratorium.
+            </p>
+
+            <div class="project-detail-tags">
+                <span>Power Supply</span>
+                <span>AC to DC</span>
+                <span>Voltage Regulator</span>
+                <span>LM317</span>
+                <span>LM337</span>
+                <span>Electronics</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 01 OVERVIEW -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">01</p>
+                <h2>Overview</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Project ini membahas perancangan dan pembuatan catu
+                    daya DC dengan beberapa pilihan tegangan keluaran
+                    untuk kebutuhan modul laboratorium. Sistem dirancang
+                    untuk menyediakan tegangan DC tetap maupun variabel
+                    sesuai kebutuhan beban elektronik.
+                </p>
+
+                <p>
+                    Catu daya menggunakan transformator untuk menurunkan
+                    tegangan AC, kemudian rangkaian dioda bridge dan
+                    kapasitor untuk proses penyearahan dan perataan
+                    tegangan. Tahap regulator digunakan untuk menghasilkan
+                    pilihan tegangan keluaran sesuai rancangan.
+                </p>
+
+                <p>
+                    Pilihan output mencakup +5V, -5V, +12V, -12V, serta
+                    keluaran variabel pada rentang +1,25V hingga +20V
+                    dan -1,25V hingga -20V. Arus keluaran yang ditargetkan
+                    adalah hingga 3A.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 02 TUJUAN -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">02</p>
+                <h2>Tujuan</h2>
+            </div>
+
+            <div class="detail-list">
+
+                <div class="detail-item">
+                    <span>01</span>
+                    <p>
+                        Merancang dan membuat catu daya DC dengan
+                        keluaran tetap -5V, +5V, -12V, dan +12V,
+                        serta keluaran variabel ±1,25V hingga ±20V
+                        dengan arus keluaran hingga 3A.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>02</span>
+                    <p>
+                        Melakukan pengujian dan evaluasi terhadap
+                        catu daya yang dibuat untuk meninjau kinerja
+                        dan kesesuaian keluaran dengan rancangan.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>03</span>
+                    <p>
+                        Menghasilkan catu daya yang dapat digunakan
+                        untuk memenuhi kebutuhan suplai beban pada
+                        modul laboratorium.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 03 SISTEM & PERANCANGAN -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">03</p>
+                <h2>Sistem & Perancangan</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Secara umum, sistem menerima masukan 220V AC.
+                    Tegangan masukan diturunkan oleh transformator,
+                    kemudian disearahkan melalui dioda bridge dan
+                    diratakan menggunakan kapasitor. Tegangan DC
+                    selanjutnya diteruskan ke rangkaian regulator
+                    untuk menyediakan beberapa pilihan output.
+                </p>
+
+                <p>
+                    Rangkaian dibagi menjadi tiga kelompok skematik
+                    berdasarkan jenis output, yaitu rangkaian output
+                    tetap ±5V, rangkaian output tetap ±12V, dan
+                    rangkaian output variabel positif serta negatif.
+                    Diagram blok menunjukkan alur umum dari input,
+                    proses, hingga kelompok output.
+                </p>
+
+            </div>
+
+            <div class="parameter-table-wrapper" style="margin-top: 40px;">
+                <table class="parameter-table">
+
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Spesifikasi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Tegangan input</td>
+                            <td>220V AC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Output tetap</td>
+                            <td>+5V, -5V, +12V, -12V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Output variabel positif</td>
+                            <td>+1,25V hingga +20V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Output variabel negatif</td>
+                            <td>-1,25V hingga -20V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Arus keluaran</td>
+                            <td>Hingga 3A</td>
+                        </tr>
+
+                        <tr>
+                            <td>Transformator</td>
+                            <td>Penurun tegangan AC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Penyearah dan filter</td>
+                            <td>Dioda bridge dan kapasitor 4700 µF</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+            <div class="project-detail-content" style="margin-top: 30px;">
+                <h3>Komponen Utama dan Pendukung</h3>
+
+                <p>
+                    Komponen yang digunakan dalam rancangan meliputi
+                    transformator, dioda bridge, kapasitor 4700 µF,
+                    IC regulator, transistor, resistor, potensiometer,
+                    fuse, serta komponen pendukung untuk perakitan.
+                </p>
+            </div>
+
+            <div class="parameter-table-wrapper" style="margin-top: 20px;">
+                <table class="parameter-table">
+
+                    <thead>
+                        <tr>
+                            <th>Komponen</th>
+                            <th>Fungsi Umum</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Transformator</td>
+                            <td>
+                                Menurunkan tegangan AC masukan ke
+                                tegangan sekunder sesuai rancangan.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Dioda bridge</td>
+                            <td>
+                                Menyearahkan tegangan AC menjadi
+                                tegangan DC berdenyut.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Kapasitor 4700 µF</td>
+                            <td>
+                                Meratakan tegangan hasil penyearahan
+                                sebelum tahap regulator.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IC 7805 dan 7905</td>
+                            <td>
+                                Regulator tegangan tetap +5V dan -5V
+                                sesuai jenis IC.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>IC 7812 dan 7912</td>
+                            <td>
+                                Regulator tegangan tetap +12V dan -12V
+                                sesuai jenis IC.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>LM317 dan LM337</td>
+                            <td>
+                                Regulator yang digunakan pada
+                                rangkaian tegangan variabel positif
+                                dan negatif.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Transistor TIP2955</td>
+                            <td>
+                                Komponen pendukung pada rangkaian
+                                keluaran sesuai rancangan.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Resistor dan potensiometer</td>
+                            <td>
+                                Komponen pendukung untuk pengaturan
+                                dan kerja rangkaian regulator.
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Fuse</td>
+                            <td>
+                                Komponen pengaman arus lebih pada
+                                rangkaian catu daya.
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 04 DOKUMENTASI SISTEM -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">04</p>
+                <h2>Dokumentasi Sistem</h2>
+            </div>
+
+            <div class="documentation-grid">
+<!-- DESAIN JALUR PCB KICAD -->
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/pcb-layout-kicad.jpeg"
+            alt="Perancangan jalur PCB catu daya menggunakan KiCad"
+        >
+    </div>
+
+    <div class="documentation-info">
+        <h3>Perancangan Jalur PCB</h3>
+        <p>
+            Desain tata letak dan jalur PCB catu daya yang
+            dirancang menggunakan KiCad.
+        </p>
+    </div>
+</div>
+
+<!-- DOKUMENTASI PERANCANGAN -->
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/dokumentasi-perancangan-1.jpeg"
+            alt="Dokumentasi Perancangan 01"
+        >
+    </div>
+    <div class="documentation-info">
+        <span>DOKUMENTASI</span>
+        <h3>Dokumentasi Perancangan 01</h3>
+        <p>Proses perancangan alat catu daya DC.</p>
+    </div>
+</div>
+
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/dokumentasi-perancangan-2.jpeg"
+            alt="Dokumentasi Perancangan 02"
+        >
+    </div>
+    <div class="documentation-info">
+        <span>DOKUMENTASI</span>
+        <h3>Dokumentasi Perancangan 02</h3>
+        <p>Dokumentasi tahapan perancangan alat.</p>
+    </div>
+</div>
+
+<!-- FOTO ALAT -->
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/alat-catu-daya.png"
+            alt="Foto alat catu daya DC yang telah dibuat"
+        >
+    </div>
+
+    <div class="documentation-info">
+        <h3>Hasil Pembuatan Alat</h3>
+        <p>
+            Dokumentasi fisik catu daya DC setelah proses
+            perakitan.
+        </p>
+    </div>
+</div>
+
+<!-- PENGUJIAN RANGKAIAN 1 -->
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/uji-rangkaian-5v.jpg"
+            alt="Pengujian output rangkaian catu daya dengan multimeter ZOTEK ZT219"
+        >
+    </div>
+
+    <div class="documentation-info">
+        <h3>Pengujian Rangkaian ±5V</h3>
+        <p>
+            Dokumentasi pengukuran keluaran rangkaian ±5V
+            menggunakan multimeter ZOTEK ZT219.
+        </p>
+    </div>
+</div>
+
+<!-- PENGUJIAN RANGKAIAN 2 -->
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/uji-rangkaian-12v.jpg"
+            alt="Pengujian output rangkaian catu daya dengan multimeter ZOTEK ZT219"
+        >
+    </div>
+
+    <div class="documentation-info">
+        <h3>Pengujian Rangkaian ±12V</h3>
+        <p>
+            Dokumentasi pengukuran keluaran rangkaian ±12V
+            menggunakan multimeter ZOTEK ZT219.
+        </p>
+    </div>
+</div>
+
+<!-- PENGUJIAN RANGKAIAN 3 -->
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project07/uji-rangkaian-variabel.jpg"
+            alt="Pengujian output variabel catu daya dengan multimeter ZOTEK ZT219"
+        >
+    </div>
+
+    <div class="documentation-info">
+        <h3>Pengujian Rangkaian Variabel</h3>
+        <p>
+            Dokumentasi pengukuran keluaran variabel positif
+            dan negatif menggunakan multimeter ZOTEK ZT219.
+        </p>
+    </div>
+</div>
+                <!-- DIAGRAM BLOK -->
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project07/diagram-blok-catu-daya.jpg"
+                            alt="Diagram blok sistem catu daya DC"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Diagram Blok Sistem</h3>
+                        <p>
+                            Diagram alur dari input 220V AC melalui
+                            tahap proses hingga kelompok output DC.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SKEMATIK 1 -->
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project07/skematik-output-5v.jpg"
+                            alt="Skematik rangkaian output tetap plus dan minus 5 volt"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Skematik Output ±5V</h3>
+                        <p>
+                            Rangkaian skematik untuk kelompok keluaran
+                            tegangan tetap +5V dan -5V.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SKEMATIK 2 -->
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project07/skematik-output-12v.jpg"
+                            alt="Skematik rangkaian output tetap plus dan minus 12 volt"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Skematik Output ±12V</h3>
+                        <p>
+                            Rangkaian skematik untuk kelompok keluaran
+                            tegangan tetap +12V dan -12V.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- SKEMATIK 3 -->
+                <div class="documentation-card">
+                    <div class="documentation-image">
+                        <img
+                            src="images/project07/skematik-output-variabel.jpg"
+                            alt="Skematik rangkaian output tegangan variabel positif dan negatif"
+                        >
+                    </div>
+
+                    <div class="documentation-info">
+                        <h3>Skematik Output Variabel</h3>
+                        <p>
+                            Rangkaian skematik untuk pengaturan
+                            keluaran tegangan variabel positif
+                            dan negatif.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 05 IMPLEMENTASI -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">05</p>
+                <h2>Implementasi Rangkaian</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Implementasi dilakukan dengan merangkai komponen
+                    utama dan pendukung sesuai rancangan catu daya.
+                    Rangkaian terdiri atas tahap penurunan tegangan,
+                    penyearahan, perataan, dan pengaturan tegangan
+                    keluaran.
+                </p>
+
+                <p>
+                    Kelompok regulator tetap menyediakan pilihan
+                    tegangan +5V, -5V, +12V, dan -12V. Sementara itu,
+                    regulator variabel digunakan untuk menyediakan
+                    rentang tegangan positif dan negatif sesuai
+                    spesifikasi rancangan.
+                </p>
+
+                <p>
+                    Rangkaian juga menggunakan komponen pendukung
+                    seperti resistor, potensiometer, fuse, sakelar,
+                    lampu indikator, jack, plug, PCB, dan kabel
+                    sebagai bagian dari sistem.
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 06 METODE PENGUJIAN -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">06</p>
+                <h2>Metode Pengujian</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Pengujian dilakukan untuk mengevaluasi keluaran
+                    catu daya dan meninjau kesesuaiannya dengan
+                    spesifikasi rancangan. Pemeriksaan mencakup
+                    pilihan tegangan tetap, rentang tegangan variabel,
+                    serta kemampuan sistem dalam menyuplai beban.
+                </p>
+
+                <p>
+                    Data hasil pengukuran aktual dapat ditambahkan
+                    pada bagian hasil pengujian apabila tersedia,
+                    termasuk kondisi beban dan alat ukur yang digunakan.
+                </p>
+
+            </div>
+
+            <div class="detail-list" style="margin-top: 30px;">
+
+                <div class="detail-item">
+                    <span>01</span>
+                    <p>
+                        Memeriksa keluaran tegangan tetap +5V dan -5V
+                        sesuai spesifikasi rancangan.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>02</span>
+                    <p>
+                        Memeriksa keluaran tegangan tetap +12V dan -12V
+                        sesuai spesifikasi rancangan.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>03</span>
+                    <p>
+                        Memeriksa rentang keluaran variabel positif
+                        dan negatif sesuai spesifikasi rancangan.
+                    </p>
+                </div>
+
+                <div class="detail-item">
+                    <span>04</span>
+                    <p>
+                        Mengevaluasi kemampuan catu daya dalam
+                        memberikan suplai kepada beban yang diuji.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 07 HASIL PENGUJIAN -->
+    <section class="project-detail-section">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">07</p>
+                <h2>Hasil Pengujian</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Berdasarkan ringkasan hasil penelitian, catu daya
+                    DC yang dirancang mampu menyediakan pilihan
+                    tegangan keluaran untuk kebutuhan sistem elektronik.
+                    Keluaran yang beragam ditujukan untuk mendukung
+                    penggunaan pada modul laboratorium dan berbagai
+                    kebutuhan beban.
+                </p>
+
+                <p>
+                    Rancangan menargetkan arus keluaran hingga 3A.
+                    Nilai pengukuran per output, kondisi beban, dan
+                    hasil uji stabilitas tidak dicantumkan pada
+                    ringkasan ini, sehingga tabel pengukuran rinci
+                    dapat ditambahkan setelah data pengujian tersedia.
+                </p>
+
+            </div>
+
+            <div class="parameter-table-wrapper" style="margin-top: 30px;">
+                <table class="parameter-table">
+
+                    <thead>
+                        <tr>
+                            <th>Kelompok Output</th>
+                            <th>Rentang / Nilai Rancangan</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>Tegangan tetap positif</td>
+                            <td>+5V dan +12V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tegangan tetap negatif</td>
+                            <td>-5V dan -12V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tegangan variabel positif</td>
+                            <td>+1,25V hingga +20V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tegangan variabel negatif</td>
+                            <td>-1,25V hingga -20V DC</td>
+                        </tr>
+
+                        <tr>
+                            <td>Arus keluaran target</td>
+                            <td>Hingga 3A</td>
+                        </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- 08 PROJECT SUMMARY -->
+    <section class="project-detail-section project-detail-dark">
+        <div class="container">
+
+            <div class="section-heading">
+                <p class="section-number">08</p>
+                <h2>Project Summary</h2>
+            </div>
+
+            <div class="project-detail-content">
+
+                <p>
+                    Project DC Power Supply berfokus pada perancangan
+                    dan pembuatan catu daya dengan beberapa pilihan
+                    output tetap dan variabel. Sistem menggunakan
+                    transformator, dioda bridge, kapasitor, dan
+                    regulator untuk menghasilkan suplai DC bagi
+                    kebutuhan modul laboratorium.
+                </p>
+
+            </div>
+
+            <div class="summary-points">
+
+                <div class="summary-point">
+                    <span>01</span>
+                    <div>
+                        <h3>Multiple DC Outputs</h3>
+                        <p>
+                            Menyediakan output tetap +5V, -5V,
+                            +12V, dan -12V DC.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="summary-point">
+                    <span>02</span>
+                    <div>
+                        <h3>Adjustable Voltage</h3>
+                        <p>
+                            Menyediakan keluaran variabel positif
+                            dan negatif pada rentang ±1,25V hingga
+                            ±20V sesuai rancangan.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="summary-point">
+                    <span>03</span>
+                    <div>
+                        <h3>Regulated Power Supply</h3>
+                        <p>
+                            Menggunakan tahap penyearahan,
+                            perataan, dan regulator untuk
+                            menyediakan keluaran DC.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="summary-point">
+                    <span>04</span>
+                    <div>
+                        <h3>Laboratory Application</h3>
+                        <p>
+                            Dirancang untuk memenuhi kebutuhan
+                            suplai daya berbagai beban pada
+                            modul laboratorium.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="project-footer">
+        <div class="container">
+
+            <div class="project-footer-content">
+
+                <div>
+                    <p class="project-footer-label">
+                        ELECTRICAL ENGINEERING PORTFOLIO
+                    </p>
+
+                    <h2>
+                        Yohan Ridho Maulana.
+                    </h2>
+
+                    <p>
+                        Electrical Engineering | Maintenance |
+                        Instrumentation | Automation
+                    </p>
+                </div>
+
+                <a href="index.html" class="project-back">
+                    ← Kembali ke Portfolio
+                </a>
+
+            </div>
+
+            <div class="project-footer-bottom">
+                <p>
+                    © 2026 Yohan Ridho Maulana. All Rights Reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

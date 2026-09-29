@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Automatic Solar Panel Cleaner | Yohan Ridho Maulana</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<!-- PROJECT HERO -->
+<header class="project-hero">
+    <div class="container">
+
+        <div class="project-hero-content">
+
+            <div class="project-hero-main">
+                <p class="project-eyebrow">
+                    PROJECT 03 / AUTOMATION
+                </p>
+
+                <h1>
+                    Automatic Solar Panel Cleaner.
+                </h1>
+
+                <p class="project-hero-description">
+                    Sistem pembersih panel surya otomatis berbasis Arduino Nano
+                    yang menggunakan sensor LDR, RTC DS3231, sensor tegangan,
+                    relay, dan pompa DC untuk menentukan kondisi dan waktu
+                    pembersihan panel.
+                </p>
+
+                <a href="index.html" class="project-hero-back">
+                    ← Kembali ke Portfolio
+                </a>
+            </div>
+
+            <div class="project-hero-meta">
+
+                <div>
+                    <span>01</span>
+                    <p>Arduino Nano</p>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <p>LDR Sensor</p>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <p>RTC DS3231</p>
+                </div>
+
+                <div>
+                    <span>04</span>
+                    <p>Automatic Cleaning</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</header>
+<!-- OVERVIEW -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">01</p>
+            <h2>Overview</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Automatic Solar Panel Cleaner merupakan sistem pembersih
+                panel surya otomatis berbasis Arduino Nano yang dirancang
+                untuk mendeteksi kondisi permukaan panel berdasarkan
+                perbedaan intensitas cahaya menggunakan dua sensor LDR.
+            </p>
+
+            <p>
+                Sistem menggunakan LDR Referensi sebagai acuan intensitas
+                cahaya lingkungan dan LDR Panel untuk mendeteksi perubahan
+                intensitas cahaya pada permukaan panel surya. Kedua hasil
+                pembacaan tersebut diolah menjadi Indeks LDR yang digunakan
+                sebagai salah satu dasar keputusan untuk mengaktifkan pompa
+                pembersih.
+            </p>
+
+            <p>
+                Selain kondisi permukaan panel, sistem mempertimbangkan
+                tegangan baterai dan waktu operasi sebelum mengaktifkan
+                pompa DC. Pompa hanya diaktifkan ketika Indeks LDR mencapai
+                threshold yang ditentukan, tegangan baterai memenuhi batas
+                minimum, dan waktu berada pada rentang operasi 07.00 hingga
+                17.00 WIB.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- TUJUAN -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">02</p>
+            <h2>Tujuan</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Merancang dan Membangun Sistem</h3>
+                    <p>
+                        Merancang dan membangun sistem pembersih panel surya
+                        otomatis berbasis Arduino untuk membantu proses
+                        pembersihan permukaan panel secara otomatis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Menguji Keseluruhan Sistem</h3>
+                    <p>
+                        Menguji keseluruhan sistem pembersih panel surya
+                        berdasarkan pembacaan Sensor LDR (Light Dependent
+                        Resistor) dan RTC (Real Time Clock) yang digunakan
+                        dalam sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Mengetahui Performa Sistem</h3>
+                    <p>
+                        Mengetahui performa sistem pembersih panel surya
+                        berdasarkan hasil pengujian yang telah dilakukan.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- SISTEM & PERANCANGAN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">03</p>
+            <h2>Sistem &amp; Perancangan</h2>
+        </div>
+
+        <div class="detail-note">
+
+            <p>
+                Automatic Solar Panel Cleaner menggunakan Arduino Nano sebagai
+                pusat pengolahan data dari sensor dan pengendalian sistem
+                pembersih. Sistem terdiri dari dua sensor LDR, RTC DS3231,
+                sensor tegangan, relay, pompa DC, dan nozzle untuk menyemprotkan
+                air ke permukaan panel surya.
+            </p>
+
+            <p>
+                Dua sensor LDR digunakan untuk mengetahui kondisi permukaan
+                panel berdasarkan perbedaan intensitas cahaya. LDR Referensi
+                ditempatkan pada posisi yang menerima cahaya matahari secara
+                langsung dan digunakan sebagai acuan intensitas cahaya
+                lingkungan, sedangkan LDR Panel ditempatkan pada permukaan
+                panel surya untuk mendeteksi perubahan intensitas cahaya akibat
+                debu atau kotoran.
+            </p>
+
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>LDR Referensi</h3>
+                    <p>
+                        LDR Referensi ditempatkan pada posisi yang menerima
+                        cahaya matahari secara langsung. Sensor ini digunakan
+                        sebagai acuan intensitas cahaya lingkungan yang menjadi
+                        pembanding terhadap pembacaan LDR Panel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>LDR Panel</h3>
+                    <p>
+                        LDR Panel dipasang pada permukaan panel surya untuk
+                        mendeteksi perubahan intensitas cahaya yang diterima
+                        akibat adanya debu atau kotoran pada permukaan panel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Indeks LDR</h3>
+                    <p>
+                        Hasil pembacaan LDR Referensi dan LDR Panel diolah oleh
+                        Arduino Nano untuk menghasilkan Indeks LDR. Nilai ini
+                        digunakan sebagai salah satu parameter untuk menentukan
+                        kondisi permukaan panel dan keputusan aktivasi sistem
+                        pembersih.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Sensor Tegangan</h3>
+                    <p>
+                        Sensor tegangan digunakan untuk memantau tegangan DC
+                        pada baterai yang digunakan sebagai sumber daya sistem.
+                        Arduino Nano membaca tegangan tersebut melalui ADC.
+                        Pompa hanya dapat diaktifkan ketika tegangan baterai
+                        memenuhi batas minimum yang telah ditentukan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">05</span>
+                <div>
+                    <h3>RTC DS3231</h3>
+                    <p>
+                        RTC DS3231 digunakan untuk membaca waktu dan
+                        berkomunikasi dengan Arduino Nano melalui komunikasi
+                        I²C menggunakan jalur SDA dan SCL. Waktu yang dibaca
+                        digunakan untuk menentukan apakah sistem berada pada
+                        rentang waktu operasi yang diperbolehkan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">06</span>
+                <div>
+                    <h3>Relay dan Pompa DC</h3>
+                    <p>
+                        Relay digunakan sebagai pengendali pompa DC. Pompa
+                        digunakan untuk mengalirkan air menuju nozzle ketika
+                        kondisi sistem memenuhi parameter yang telah ditentukan
+                        untuk proses pembersihan panel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">07</span>
+                <div>
+                    <h3>Nozzle</h3>
+                    <p>
+                        Nozzle digunakan untuk menyemprotkan air ke permukaan
+                        panel surya ketika proses pembersihan diaktifkan oleh
+                        sistem.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CARA KERJA SISTEM -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">04</p>
+            <h2>Cara Kerja Sistem</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pembacaan Intensitas Cahaya</h3>
+                    <p>
+                        LDR Referensi dan LDR Panel membaca intensitas cahaya
+                        yang diterima oleh masing-masing sensor. LDR Referensi
+                        digunakan sebagai acuan kondisi cahaya lingkungan,
+                        sedangkan LDR Panel digunakan untuk mengetahui perubahan
+                        intensitas cahaya pada permukaan panel surya.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Perhitungan Indeks LDR</h3>
+                    <p>
+                        Hasil pembacaan kedua sensor LDR diproses oleh Arduino
+                        Nano untuk menghitung Indeks LDR. Nilai indeks diperoleh
+                        berdasarkan perbandingan tegangan keluaran LDR Referensi
+                        dengan tegangan keluaran LDR Panel.
+                    </p>
+
+                    <div class="formula-box">
+                        <span>Indeks LDR</span>
+                        <strong>Vreferensi / Vpanel</strong>
+                    </div>
+
+                    <p>
+                        Vreferensi merupakan tegangan keluaran dari LDR
+                        Referensi, sedangkan Vpanel merupakan tegangan keluaran
+                        dari LDR Panel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Penentuan Kondisi Panel</h3>
+                    <p>
+                        Nilai Indeks LDR dibandingkan dengan threshold sebesar
+                        1,5 untuk menentukan kondisi permukaan panel. Nilai
+                        Indeks LDR kurang dari 1,5 dikategorikan sebagai kondisi
+                        bersih, sedangkan nilai 1,5 atau lebih dikategorikan
+                        sebagai kondisi kotor.
+                    </p>
+
+                    <div class="condition-table">
+                        <div class="condition-row condition-header">
+                            <span>Indeks LDR</span>
+                            <span>Kondisi</span>
+                        </div>
+
+                        <div class="condition-row">
+                            <span>&lt; 1,5</span>
+                            <span>Bersih</span>
+                        </div>
+
+                        <div class="condition-row">
+                            <span>&ge; 1,5</span>
+                            <span>Kotor</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Pengecekan Tegangan Baterai</h3>
+                    <p>
+                        Sistem membaca tegangan baterai menggunakan sensor
+                        tegangan. Pompa DC hanya dapat diaktifkan apabila
+                        tegangan baterai mencapai batas minimum sebesar 12 V.
+                        Jika tegangan baterai berada di bawah 12 V, pompa tidak
+                        diaktifkan untuk menghindari kondisi pengosongan baterai
+                        secara berlebihan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">05</span>
+                <div>
+                    <h3>Pengecekan Waktu Operasi</h3>
+                    <p>
+                        RTC DS3231 digunakan untuk membaca waktu aktual sistem.
+                        Proses pembersihan hanya diperbolehkan pada rentang
+                        waktu 07.00–17.00 WIB. Di luar rentang tersebut, pompa
+                        tidak diaktifkan meskipun panel terdeteksi dalam kondisi
+                        kotor.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">06</span>
+                <div>
+                    <h3>Aktivasi Sistem Pembersih</h3>
+                    <p>
+                        Pompa DC diaktifkan melalui relay apabila seluruh
+                        kondisi yang diperlukan terpenuhi, yaitu panel terdeteksi
+                        kotor berdasarkan Indeks LDR, tegangan baterai mencapai
+                        minimal 12 V, dan waktu berada pada rentang operasi
+                        07.00–17.00 WIB. Air kemudian dialirkan menuju nozzle
+                        untuk disemprotkan ke permukaan panel surya.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- DOKUMENTASI SISTEM -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">05</p>
+            <h2>Dokumentasi Sistem</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-overview.png"
+                        alt="Keseluruhan sistem Automatic Solar Panel Cleaner"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>01 / SYSTEM</span>
+                    <h3>Keseluruhan Sistem</h3>
+                    <p>
+                        Dokumentasi keseluruhan sistem Automatic Solar Panel
+                        Cleaner yang terdiri dari panel surya dan perangkat
+                        pendukung sistem pembersihan otomatis.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-schematic.png"
+                        alt="Schematic Automatic Solar Panel Cleaner"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>02 / SCHEMATIC</span>
+                    <h3>Schematic Sistem</h3>
+                    <p>
+                        Rangkaian sistem yang menunjukkan hubungan Arduino Nano
+                        dengan sensor LDR, RTC DS3231, sensor tegangan, relay,
+                        dan komponen pendukung lainnya.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-flowchart.png"
+                        alt="Flowchart Automatic Solar Panel Cleaner"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>03 / FLOWCHART</span>
+                    <h3>Flowchart Sistem</h3>
+                    <p>
+                        Alur kerja sistem mulai dari inisialisasi, pembacaan
+                        sensor, pengecekan kondisi panel, tegangan baterai,
+                        waktu operasi, hingga pengaktifan pompa DC.
+                    </p>
+                </div>
+            </div>
+
+</section>
+
+
+
+<!-- DOKUMENTASI KOMPONEN -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">06</p>
+            <h2>Dokumentasi Komponen</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-arduino.png"
+                        alt="Arduino Nano"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>01 / CONTROLLER</span>
+                    <h3>Arduino Nano</h3>
+                    <p>
+                        Arduino Nano digunakan sebagai pusat pengolahan data
+                        sensor dan pengendalian sistem pembersih panel surya.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-ldr.png"
+                        alt="Sensor LDR"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>02 / SENSOR</span>
+                    <h3>Sensor LDR</h3>
+                    <p>
+                        Dua sensor LDR digunakan sebagai LDR Referensi dan
+                        LDR Panel untuk mengetahui perbedaan intensitas cahaya
+                        pada lingkungan dan permukaan panel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-rtc.png"
+                        alt="RTC DS3231"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>03 / TIME CONTROL</span>
+                    <h3>RTC DS3231</h3>
+                    <p>
+                        RTC DS3231 digunakan untuk membaca waktu dan menentukan
+                        rentang waktu operasi sistem pembersihan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-voltage-sensor.png"
+                        alt="Sensor Tegangan"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>04 / MONITORING</span>
+                    <h3>Sensor Tegangan</h3>
+                    <p>
+                        Sensor tegangan digunakan untuk memantau tegangan
+                        baterai sebagai salah satu parameter sebelum pompa
+                        diaktifkan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-relay.png"
+                        alt="Relay"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>05 / CONTROL</span>
+                    <h3>Relay</h3>
+                    <p>
+                        Relay digunakan sebagai pengendali pompa DC berdasarkan
+                        kondisi yang telah diproses oleh Arduino Nano.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-pump.png"
+                        alt="Pompa DC"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>06 / ACTUATOR</span>
+                    <h3>Pompa DC</h3>
+                    <p>
+                        Pompa DC digunakan untuk mengalirkan air menuju nozzle
+                        ketika proses pembersihan panel diaktifkan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-nozzle.png"
+                        alt="Nozzle"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>07 / CLEANING</span>
+                    <h3>Nozzle</h3>
+                    <p>
+                        Nozzle digunakan untuk menyemprotkan air ke permukaan
+                        panel surya dalam proses pembersihan.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- IMPLEMENTASI PROGRAM -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">07</p>
+            <h2>Implementasi Program</h2>
+        </div>
+
+        <div class="detail-note">
+
+            <p>
+                 Program pada Automatic Solar Panel Cleaner diimplementasikan
+    menggunakan Arduino Nano sebagai pusat pengolahan sistem.
+    Program digunakan untuk melakukan kalibrasi dan pembacaan
+    dua sensor LDR, sensor tegangan, serta RTC DS3231 sebelum
+    digunakan dalam proses pengendalian sistem.
+            </p>
+
+            <p>
+               <p>
+    Kalibrasi sensor LDR dilakukan untuk memperoleh pembacaan dari
+    LDR Referensi dan LDR Panel yang digunakan dalam perhitungan
+    Indeks LDR. Sensor tegangan dikalibrasi untuk menyesuaikan hasil
+    pembacaan tegangan baterai dengan nilai aktual, sedangkan RTC
+    DS3231 dikonfigurasi dan diuji untuk memastikan waktu yang
+    digunakan sistem sesuai dengan waktu operasi yang ditentukan.
+</p>
+            </p>
+
+        </div>
+
+<div class="detail-list">
+
+    <div class="detail-item">
+        <span class="detail-number">01</span>
+        <div>
+            <h3>Kalibrasi LDR Referensi dan LDR Panel</h3>
+            <p>
+                Program digunakan untuk membaca nilai kedua sensor LDR
+                dan melakukan penyesuaian pembacaan agar LDR Referensi
+                dan LDR Panel dapat digunakan sebagai dasar perhitungan
+                Indeks LDR.
+            </p>
+        </div>
+    </div>
+
+    <div class="detail-item">
+        <span class="detail-number">02</span>
+        <div>
+            <h3>Kalibrasi Sensor Tegangan</h3>
+            <p>
+                Program digunakan untuk membaca keluaran sensor tegangan
+                dan melakukan penyesuaian nilai pembacaan terhadap
+                tegangan baterai aktual. Hasil kalibrasi digunakan
+                sebagai parameter pemantauan tegangan baterai.
+            </p>
+        </div>
+    </div>
+
+    <div class="detail-item">
+        <span class="detail-number">03</span>
+        <div>
+            <h3>Konfigurasi RTC DS3231</h3>
+            <p>
+                Program digunakan untuk mengatur dan membaca waktu dari
+                RTC DS3231. Data waktu tersebut digunakan sebagai
+                parameter untuk menentukan apakah sistem berada pada
+                rentang waktu operasi 07.00–17.00 WIB.
+            </p>
+        </div>
+    </div>
+
+</div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project03/project03-code.png"
+                        alt="Implementasi program Automatic Solar Panel Cleaner"
+                    >
+                </div>
+
+                <div class="documentation-info">
+                    <span>01 / PROGRAM</span>
+                    <h3>Program Arduino Nano</h3>
+                    <p>
+                        Implementasi program untuk membaca sensor, menghitung
+                        Indeks LDR, membaca waktu melalui RTC DS3231,
+                        memantau tegangan baterai, dan mengendalikan pompa
+                        DC melalui relay.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- METODE PENGUJIAN -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">08</p>
+            <h2>Metode Pengujian</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pengujian Sensor LDR</h3>
+                    <p>
+                        Pengujian dilakukan dengan membandingkan pembacaan
+                        LDR Referensi dan LDR Panel untuk mengetahui perubahan
+                        intensitas cahaya pada permukaan panel surya. Hasil
+                        pembacaan kedua sensor digunakan untuk menghitung
+                        Indeks LDR sebagai parameter dalam menentukan kondisi
+                        panel.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Pengujian Indeks LDR</h3>
+                    <p>
+                        Pengujian dilakukan untuk mengetahui kesesuaian nilai
+                        Indeks LDR terhadap kondisi permukaan panel. Nilai
+                        Indeks LDR dibandingkan dengan threshold sebesar 1,5
+                        untuk menentukan kondisi panel bersih atau kotor.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Pengujian Sensor Tegangan</h3>
+                    <p>
+                        Pengujian dilakukan untuk memantau tegangan baterai
+                        yang digunakan sebagai sumber daya sistem. Hasil
+                        pembacaan digunakan untuk menentukan apakah tegangan
+                        baterai telah memenuhi batas minimum 12 V sebelum
+                        pompa DC dapat diaktifkan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Pengujian RTC DS3231</h3>
+                    <p>
+                        Pengujian dilakukan untuk memastikan RTC DS3231 dapat
+                        membaca waktu yang digunakan oleh sistem. Waktu yang
+                        terbaca dibandingkan dengan rentang waktu operasi
+                        07.00–17.00 WIB untuk menentukan apakah proses
+                        pembersihan diperbolehkan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">05</span>
+                <div>
+                    <h3>Pengujian Pompa dan Relay</h3>
+                    <p>
+                        Pengujian dilakukan untuk mengetahui respons relay dan
+                        pompa DC terhadap kondisi yang diberikan oleh sistem.
+                        Pompa diamati ketika kondisi panel, tegangan baterai,
+                        dan waktu operasi memenuhi parameter yang telah
+                        ditentukan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">06</span>
+                <div>
+                    <h3>Pengujian Keseluruhan Sistem</h3>
+                    <p>
+                        Pengujian dilakukan dengan mengoperasikan keseluruhan
+                        sistem untuk mengetahui performa Automatic Solar Panel
+                        Cleaner. Pengujian mencakup pembacaan LDR, perhitungan
+                        Indeks LDR, pemantauan tegangan baterai, pembacaan
+                        waktu oleh RTC DS3231, serta pengendalian pompa DC
+                        melalui relay.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- HASIL PENGUJIAN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">09</p>
+            <h2>Hasil Pengujian</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Pengujian keseluruhan sistem dilakukan dengan memberikan
+                beberapa kondisi pada panel surya, tegangan baterai, dan
+                waktu operasi. Hasil pengujian digunakan untuk mengetahui
+                respons sistem dalam menentukan apakah proses pembersihan
+                perlu diaktifkan atau tidak.
+            </p>
+        </div>
+
+        <div class="result-table-wrapper">
+
+            <table class="result-table">
+
+                <thead>
+                    <tr>
+                        <th>Kondisi Panel<br>(Indeks LDR)</th>
+                        <th>Tegangan Baterai</th>
+                        <th>Waktu RTC</th>
+                        <th>Status Pembersihan</th>
+                        <th>Keterangan</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Bersih (Indeks &lt; 1,5)</td>
+                        <td>12,5 V</td>
+                        <td>09:00</td>
+                        <td>Tidak aktif</td>
+                        <td>
+                            Panel bersih, tidak perlu pembersihan
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Kotor (Indeks &gt; 1,5)</td>
+                        <td>11,8 V</td>
+                        <td>10:00</td>
+                        <td>Tidak aktif</td>
+                        <td>
+                            Tegangan kurang dari 12 V
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Kotor (Indeks &gt; 1,5)</td>
+                        <td>12,6 V</td>
+                        <td>14:00</td>
+                        <td>Aktif</td>
+                        <td>
+                            Semua syarat terpenuhi
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Bersih (Indeks &lt; 1,5)</td>
+                        <td>13,0 V</td>
+                        <td>15:00</td>
+                        <td>Tidak aktif</td>
+                        <td>
+                            Panel masih bersih
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>Kotor (Indeks &gt; 1,5)</td>
+                        <td>12,7 V</td>
+                        <td>17:30</td>
+                        <td>Tidak aktif</td>
+                        <td>
+                            Di luar waktu operasional
+                        </td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PROJECT SUMMARY -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">10</p>
+            <h2>Project Summary</h2>
+        </div>
+
+        <div class="detail-note">
+
+            <p>
+                Automatic Solar Panel Cleaner merupakan sistem pembersih
+                panel surya otomatis berbasis Arduino Nano yang menggunakan
+                dua sensor LDR untuk mengetahui kondisi permukaan panel
+                berdasarkan perbedaan intensitas cahaya.
+            </p>
+
+            <p>
+                Sistem juga mempertimbangkan tegangan baterai dan waktu operasi
+                sebelum mengaktifkan proses pembersihan. Indeks LDR digunakan
+                sebagai parameter kondisi panel, sedangkan sensor tegangan
+                digunakan untuk memantau tegangan baterai dan RTC DS3231
+                digunakan untuk menentukan waktu operasi sistem.
+            </p>
+
+            <p>
+                Berdasarkan pengujian keseluruhan sistem, pompa DC dapat
+                diaktifkan ketika kondisi panel terdeteksi kotor, tegangan
+                baterai memenuhi batas minimum 12 V, dan waktu berada pada
+                rentang operasi 07.00–17.00 WIB. Sistem tidak mengaktifkan
+                pompa apabila salah satu kondisi tersebut tidak terpenuhi.
+            </p>
+
+        </div>
+
+        <div class="summary-points">
+
+            <div class="summary-point">
+                <span>01</span>
+                <h3>Automatic Detection</h3>
+                <p>
+                    Kondisi panel ditentukan berdasarkan pembacaan dua sensor
+                    LDR dan perhitungan Indeks LDR.
+                </p>
+            </div>
+
+            <div class="summary-point">
+                <span>02</span>
+                <h3>Battery Monitoring</h3>
+                <p>
+                    Tegangan baterai dipantau sebagai salah satu syarat
+                    sebelum pompa DC diaktifkan.
+                </p>
+            </div>
+
+            <div class="summary-point">
+                <span>03</span>
+                <h3>Time Control</h3>
+                <p>
+                    RTC DS3231 digunakan untuk membatasi operasi sistem pada
+                    rentang waktu 07.00–17.00 WIB.
+                </p>
+            </div>
+
+            <div class="summary-point">
+                <span>04</span>
+                <h3>Automatic Cleaning</h3>
+                <p>
+                    Pompa DC dikendalikan melalui relay untuk mengalirkan air
+                    menuju nozzle ketika seluruh kondisi terpenuhi.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="project-footer">
+    <div class="container">
+
+        <div class="project-footer-content">
+
+            <div>
+                <p class="project-footer-label">
+                    ELECTRICAL ENGINEERING PORTFOLIO
+                </p>
+
+                <h2>
+                    Yohan Ridho Maulana.
+                </h2>
+
+                <p>
+                    Electrical Engineering | Maintenance |
+                    Instrumentation | Automation
+                </p>
+            </div>
+
+            <a href="index.html" class="project-back">
+                ← Kembali ke Portfolio
+            </a>
+
+        </div>
+
+        <div class="project-footer-bottom">
+            <p>
+                © 2026 Yohan Ridho Maulana. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>

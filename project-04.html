@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Door Lock | Yohan Ridho Maulana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- PROJECT HERO -->
+<header class="project-hero">
+    <div class="container">
+
+        <div class="project-hero-content">
+
+            <div class="project-hero-main">
+                <p class="project-eyebrow">
+                    PROJECT 04 / INTERNET OF THINGS
+                </p>
+
+                <h1>
+                    Smart Door Lock.
+                </h1>
+
+                <p class="project-hero-description">
+                    Sistem pengamanan dan pengendalian akses pintu berbasis
+                    Wemos D1 Mini (ESP8266), RFID, dan Internet of Things
+                    (IoT), dengan pemantauan serta kendali melalui perangkat
+                    mobile.
+                </p>
+
+                <a href="index.html" class="project-hero-back">
+                    ← Kembali ke Portfolio
+                </a>
+            </div>
+
+            <div class="project-hero-meta">
+
+                <div>
+                    <span>01</span>
+                    <p>Wemos D1 Mini</p>
+                </div>
+
+                <div>
+                    <span>02</span>
+                    <p>RFID</p>
+                </div>
+
+                <div>
+                    <span>03</span>
+                    <p>Blynk IoT</p>
+                </div>
+
+                <div>
+                    <span>04</span>
+                    <p>Access Control</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</header>
+
+<!-- 01 / OVERVIEW -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">01</p>
+            <h2>Overview</h2>
+        </div>
+
+        <div class="detail-note">
+
+            <p>
+                Smart Door Lock merupakan sistem pengamanan pintu berbasis
+                Wemos D1 Mini (ESP8266), RFID, dan Internet of Things (IoT)
+                yang dirancang untuk mengatur serta mengendalikan akses
+                ruangan berdasarkan identitas pengguna.
+            </p>
+
+            <p>
+                Sistem mengintegrasikan pembacaan kartu RFID, kendali pintu
+                melalui aplikasi Blynk, dan push button sebagai pilihan
+                pengoperasian. Sensor getaran digunakan untuk mendeteksi
+                gangguan pada pintu, sehingga sistem dapat membantu
+                memberikan peringatan dini terhadap potensi upaya
+                pembobolan.
+            </p>
+
+            <p>
+                Dengan integrasi teknologi IoT, pengguna dapat mengelola
+                dan mengawasi akses ruangan secara real-time melalui
+                perangkat mobile. Sistem ini dikembangkan untuk mendukung
+                pengamanan ruang administrasi serta meningkatkan
+                kemudahan dan kenyamanan dalam pengelolaan akses pintu.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 02 / TUJUAN -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">02</p>
+            <h2>Tujuan</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Pengembangan Smart Door Lock bertujuan menyediakan sistem
+                pengamanan pintu yang terintegrasi dengan teknologi
+                Internet of Things (IoT), sehingga pengguna dapat mengelola
+                dan mengawasi akses ruangan secara real-time melalui
+                perangkat mobile.
+            </p>
+
+            <p>
+                Sistem dirancang untuk meningkatkan keamanan, mencegah
+                akses ilegal, memberikan notifikasi dini terhadap upaya
+                pembobolan, serta meningkatkan efisiensi dan kenyamanan
+                dalam pengelolaan keamanan ruang administrasi secara
+                berkelanjutan.
+            </p>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pengamanan Pintu Berbasis IoT</h3>
+                    <p>
+                        Mengembangkan sistem pengamanan pintu yang
+                        terintegrasi dengan teknologi Internet of Things
+                        untuk mendukung pengelolaan dan pengawasan akses
+                        ruangan melalui perangkat mobile.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Pengendalian Akses Ruangan</h3>
+                    <p>
+                        Mengatur dan mengendalikan akses pintu berdasarkan
+                        identitas pengguna serta menyediakan kendali melalui
+                        aplikasi Blynk dan push button.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Pemantauan dan Peringatan Dini</h3>
+                    <p>
+                        Mendukung pemantauan akses ruangan secara real-time
+                        dan memberikan notifikasi dini ketika sensor getaran
+                        mendeteksi gangguan pada pintu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Efisiensi dan Kenyamanan</h3>
+                    <p>
+                        Meningkatkan efisiensi dan kenyamanan pengelolaan
+                        keamanan ruang administrasi melalui sistem
+                        pengendalian akses yang terintegrasi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 03 / SISTEM & PERANCANGAN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">03</p>
+            <h2>Sistem &amp; Perancangan</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Smart Door Lock dirancang menggunakan Wemos D1 Mini
+                (ESP8266) sebagai pusat pengendalian sistem. Sistem
+                mengintegrasikan RFID sebagai identifikasi pengguna,
+                aplikasi Blynk untuk kendali melalui perangkat mobile,
+                serta push button sebagai kendali langsung pada perangkat.
+            </p>
+
+            <p>
+                Sistem juga dilengkapi sensor getaran untuk mendeteksi
+                gangguan pada pintu. Ketika akses diberikan melalui
+                mekanisme yang tersedia, pengendali mengatur aktuator
+                kunci pintu. Integrasi IoT mendukung pemantauan dan
+                pengelolaan akses ruangan.
+            </p>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Wemos D1 Mini (ESP8266)</h3>
+                    <p>
+                        Berfungsi sebagai mikrokontroler utama yang
+                        memproses masukan dari perangkat identifikasi
+                        dan sensor, serta mengatur kendali sistem
+                        penguncian pintu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>RFID RC522</h3>
+                    <p>
+                        Digunakan untuk membaca kartu RFID sebagai
+                        identitas pengguna. Data identifikasi diproses
+                        oleh pengendali untuk mengatur pemberian akses
+                        pintu sesuai rancangan sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Solenoid Door Lock dan Relay</h3>
+                    <p>
+                        Solenoid berfungsi sebagai aktuator pengunci
+                        pintu, sedangkan relay digunakan untuk
+                        mengendalikan aktuator berdasarkan perintah
+                        dari sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Aplikasi Blynk</h3>
+                    <p>
+                        Digunakan sebagai antarmuka IoT untuk
+                        mengendalikan akses pintu melalui perangkat
+                        mobile dan mendukung pemantauan sistem secara
+                        real-time.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">05</span>
+                <div>
+                    <h3>Push Button</h3>
+                    <p>
+                        Menyediakan pilihan kendali langsung untuk
+                        membuka pintu sebagai bagian dari mekanisme
+                        pengoperasian sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">06</span>
+                <div>
+                    <h3>Sensor Getaran</h3>
+                    <p>
+                        Digunakan untuk mendeteksi getaran atau
+                        gangguan pada pintu. Deteksi sensor menjadi
+                        masukan bagi sistem untuk mendukung
+                        pemberian notifikasi dini.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 04 / DOKUMENTASI SISTEM -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">04</p>
+            <h2>Dokumentasi Sistem</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project04/project04-overview.jpg"
+                        alt="Dokumentasi keseluruhan Smart Door Lock">
+                </div>
+
+                <div class="documentation-info">
+                    <span>01 / SYSTEM</span>
+                    <h3>Keseluruhan Sistem</h3>
+                    <p>
+                        Dokumentasi perangkat Smart Door Lock yang
+                        mengintegrasikan mikrokontroler, RFID, aktuator
+                        kunci, sensor getaran, dan kendali IoT.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project04/project04-schematic.jpg"
+                        alt="Schematic Smart Door Lock">
+                </div>
+
+                <div class="documentation-info">
+                    <span>02 / SCHEMATIC</span>
+                    <h3>Schematic Sistem</h3>
+                    <p>
+                        Diagram rangkaian yang memperlihatkan hubungan
+                        Wemos D1 Mini dengan modul RFID, sensor getaran,
+                        kendali aktuator, dan komponen pendukung.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img
+                        src="images/project04/project04-flowchart.jpg"
+                        alt="Flowchart Smart Door Lock">
+                </div>
+
+                <div class="documentation-info">
+                    <span>03 / FLOWCHART</span>
+                    <h3>Flowchart Sistem</h3>
+                    <p>
+                        Diagram alur proses sistem mulai dari inisialisasi,
+                        pembacaan identitas RFID dan masukan kendali,
+                        hingga pengaturan akses pintu serta deteksi gangguan.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 05 / DOKUMENTASI KOMPONEN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">05</p>
+            <h2>Dokumentasi Komponen</h2>
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/esp8266.jpg"
+                         alt="Wemos D1 Mini ESP8266">
+                </div>
+                <div class="documentation-info">
+                    <span>01 / CONTROLLER</span>
+                    <h3>Wemos D1 Mini (ESP8266)</h3>
+                    <p>
+                        Mikrokontroler utama yang memproses masukan
+                        dari sensor dan mengendalikan sistem Smart Door
+                        Lock serta koneksi IoT.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/rfid.png"
+                         alt="Modul RFID">
+                </div>
+                <div class="documentation-info">
+                    <span>02 / ACCESS CONTROL</span>
+                    <h3>RFID</h3>
+                    <p>
+                        Digunakan untuk membaca kartu RFID sebagai
+                        identitas pengguna dalam proses pengendalian
+                        akses pintu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/sw420.jpg"
+                         alt="Sensor getaran SW-420">
+                </div>
+                <div class="documentation-info">
+                    <span>03 / SECURITY SENSOR</span>
+                    <h3>Sensor Getaran SW-420</h3>
+                    <p>
+                        Mendeteksi getaran atau gangguan pada pintu
+                        sebagai masukan untuk sistem peringatan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/relay.jpg"
+                         alt="Modul relay">
+                </div>
+                <div class="documentation-info">
+                    <span>04 / CONTROL</span>
+                    <h3>Relay</h3>
+                    <p>
+                        Berfungsi sebagai sakelar kendali untuk
+                        mengatur aktuator kunci pintu berdasarkan
+                        perintah dari sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/solenoid.jpg"
+                         alt="Solenoid door lock">
+                </div>
+                <div class="documentation-info">
+                    <span>05 / ACTUATOR</span>
+                    <h3>Solenoid Door Lock</h3>
+                    <p>
+                        Aktuator pengunci pintu yang dikendalikan
+                        melalui relay untuk mengatur akses masuk
+                        sesuai perintah sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/lcd-16x2-i2c.jpg"
+                         alt="LCD 16x2 I2C">
+                </div>
+                <div class="documentation-info">
+                    <span>06 / DISPLAY</span>
+                    <h3>LCD 16×2 I2C</h3>
+                    <p>
+                        Digunakan sebagai tampilan informasi sistem
+                        Smart Door Lock.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 06 / IMPLEMENTASI PROGRAM -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">06</p>
+            <h2>Implementasi Program</h2>
+        </div>
+
+        <div class="detail-note">
+
+            <p>
+                Program Smart Door Lock diimplementasikan pada Wemos D1 Mini
+                (ESP8266) untuk memproses masukan dari modul RFID dan sensor
+                getaran, serta mengendalikan akses pintu. Sistem juga
+                terintegrasi dengan aplikasi Blynk untuk mendukung kendali
+                pintu dan pemantauan melalui perangkat mobile.
+            </p>
+
+            <p>
+                Pengendalian akses dilakukan melalui pembacaan kartu RFID,
+                aplikasi Blynk, dan push button. Program mengatur respons
+                sistem terhadap masukan tersebut serta menggunakan sensor
+                getaran untuk mendeteksi gangguan pada pintu sesuai
+                perancangan.
+            </p>
+
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pembacaan Identitas RFID</h3>
+                    <p>
+                        Program menerima data dari modul RFID dan memproses
+                        identitas kartu untuk menentukan pemberian akses
+                        pintu sesuai rancangan sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Kendali Pintu</h3>
+                    <p>
+                        Program mengatur perintah pembukaan pintu melalui
+                        aplikasi Blynk dan push button, serta mengendalikan
+                        aktuator kunci melalui relay.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Deteksi Gangguan Pintu</h3>
+                    <p>
+                        Program membaca masukan sensor getaran SW-420 untuk
+                        mendeteksi gangguan pada pintu dan mendukung
+                        pemberian notifikasi dini.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Integrasi Blynk IoT</h3>
+                    <p>
+                        Program mengintegrasikan perangkat dengan aplikasi
+                        Blynk untuk mendukung pengendalian akses dan
+                        pemantauan sistem melalui perangkat mobile.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/program.jpg"
+                         alt="Tampilan program Smart Door Lock">
+                </div>
+
+                <div class="documentation-info">
+                    <span>01 / PROGRAM</span>
+                    <h3>Program Wemos D1 Mini</h3>
+                    <p>
+                        Dokumentasi program pengendalian akses pintu
+                        berbasis Wemos D1 Mini (ESP8266) dengan
+                        integrasi RFID, sensor getaran, dan Blynk.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 07 / METODE PENGUJIAN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">07</p>
+            <h2>Metode Pengujian</h2>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pengujian Pembacaan Kartu RFID</h3>
+                    <p>
+                        Pengujian dilakukan dengan menggunakan kartu RFID
+                        yang terdaftar dan tidak terdaftar untuk mengamati
+                        respons sistem dalam membaca identitas pengguna
+                        dan mengatur pemberian akses pintu.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Pengujian Kendali Pintu</h3>
+                    <p>
+                        Pengujian dilakukan dengan memberikan perintah
+                        pembukaan pintu melalui aplikasi Blynk dan push
+                        button. Respons sistem diamati untuk mengetahui
+                        apakah kendali pintu berjalan sesuai perancangan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Pengujian Sensor Getaran</h3>
+                    <p>
+                        Pengujian dilakukan dengan memberikan gangguan
+                        berupa getaran pada pintu dan mengamati respons
+                        sensor SW-420 serta notifikasi yang dihasilkan
+                        oleh sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">04</span>
+                <div>
+                    <h3>Evaluasi Kepuasan Pengguna</h3>
+                    <p>
+                        Evaluasi dilakukan untuk mengetahui tanggapan
+                        pengguna terhadap kemudahan penggunaan dan manfaat
+                        Smart Door Lock dalam mendukung keamanan serta
+                        pengendalian akses pintu.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- 08 / HASIL PENGUJIAN -->
+<section class="project-detail-section project-detail-dark">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">08</p>
+            <h2>Hasil Pengujian</h2>
+        </div>
+
+        <div class="detail-note">
+            <p>
+                Berdasarkan hasil pengujian fungsional, sistem Smart Door
+                Lock dapat membaca kartu RFID dengan akurat, membuka pintu
+                melalui aplikasi Blynk dan push button secara normal, serta
+                mendeteksi gangguan pintu menggunakan sensor getaran sesuai
+                dengan perancangan.
+            </p>
+
+            <p>
+                Evaluasi kepuasan pengguna menunjukkan bahwa alat mudah
+                digunakan dan bermanfaat, terutama dalam mendukung keamanan
+                serta pengendalian akses pintu.
+            </p>
+        </div>
+
+        <div class="detail-list">
+
+            <div class="detail-item">
+                <span class="detail-number">01</span>
+                <div>
+                    <h3>Pengujian Akses RFID</h3>
+                    <p>
+                        Hasil pengujian menunjukkan bahwa sistem dapat
+                        membaca kartu RFID dan mengatur akses berdasarkan
+                        identitas pengguna. Dokumentasi percobaan mencakup
+                        penggunaan kartu terdaftar dan tidak terdaftar.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">02</span>
+                <div>
+                    <h3>Pengujian Kendali dan Notifikasi</h3>
+                    <p>
+                        Pintu dapat dikendalikan melalui aplikasi Blynk
+                        dan push button secara normal. Sistem juga dapat
+                        mendeteksi gangguan pintu menggunakan sensor
+                        getaran sesuai perancangan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <span class="detail-number">03</span>
+                <div>
+                    <h3>Evaluasi Kepuasan Pengguna</h3>
+                    <p>
+                        Hasil evaluasi menunjukkan bahwa alat mudah
+                        digunakan dan bermanfaat, terutama untuk
+                        meningkatkan keamanan dan pengendalian akses pintu.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="documentation-grid">
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/hasil-pengujian-tabel.jpg"
+                         alt="Tabel hasil pengujian Smart Door Lock">
+                </div>
+                <div class="documentation-info">
+                    <span>01 / TEST RESULTS</span>
+                    <h3>Tabel Hasil Pengujian</h3>
+                    <p>
+                        Dokumentasi tabel hasil pengujian sistem
+                        Smart Door Lock.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/percobaan-terdaftar.jpg"
+                         alt="Percobaan menggunakan kartu RFID terdaftar">
+                </div>
+                <div class="documentation-info">
+                    <span>02 / RFID TEST</span>
+                    <h3>Kartu Terdaftar</h3>
+                    <p>
+                        Dokumentasi percobaan akses pintu menggunakan
+                        kartu RFID yang terdaftar pada sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/percobaan-tidak-terdaftar.jpg"
+                         alt="Percobaan menggunakan kartu RFID tidak terdaftar">
+                </div>
+                <div class="documentation-info">
+                    <span>03 / RFID TEST</span>
+                    <h3>Kartu Tidak Terdaftar</h3>
+                    <p>
+                        Dokumentasi percobaan akses pintu menggunakan
+                        kartu RFID yang tidak terdaftar pada sistem.
+                    </p>
+                </div>
+            </div>
+
+            <div class="documentation-card">
+                <div class="documentation-image">
+                    <img src="images/project04/notifikasi-blynk.jpg"
+                         alt="Notifikasi Blynk pada Smart Door Lock">
+                </div>
+                <div class="documentation-info">
+                    <span>04 / IOT NOTIFICATION</span>
+                    <h3>Notifikasi Blynk</h3>
+                    <p>
+                        Dokumentasi tampilan notifikasi Blynk sebagai
+                        bagian dari pemantauan sistem melalui perangkat
+                        mobile.
+                    </p>
+                </div>
+            </div>
+<div class="documentation-card">
+    <div class="documentation-image">
+        <img
+            src="images/project04/desain-maket-sketchup.png"
+            alt="Desain maket Smart Door Lock yang dibuat menggunakan SketchUp"
+        >
+    </div>
+
+    <div class="documentation-info">
+        <h3>Desain Maket 3D</h3>
+        <p>
+            Visualisasi rancangan maket Smart Door Lock menggunakan
+            SketchUp sebagai dokumentasi desain sistem.
+        </p>
+    </div>
+</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- 09 / PROJECT SUMMARY -->
+<section class="project-detail-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <p class="section-number">09</p>
+            <h2>Project Summary</h2>
+        </div>
+
+        <div class="detail-note">
+
+            <p>
+                Smart Door Lock berbasis Wemos D1 Mini (ESP8266), RFID,
+                dan IoT berhasil dirancang dan dibangun untuk mengatur
+                serta mengendalikan akses pintu berdasarkan identitas
+                pengguna.
+            </p>
+
+            <p>
+                Berdasarkan hasil pengujian fungsional, sistem dapat
+                membaca kartu RFID dengan akurat, membuka pintu melalui
+                aplikasi Blynk dan push button secara normal, serta
+                mendeteksi gangguan pintu menggunakan sensor getaran
+                sesuai dengan perancangan.
+            </p>
+
+            <p>
+                Hasil evaluasi kepuasan pengguna menunjukkan bahwa alat
+                mudah digunakan dan bermanfaat, terutama dalam
+                meningkatkan keamanan dan pengendalian akses pintu.
+                Sistem ini dikembangkan untuk mendukung pengelolaan
+                keamanan ruang administrasi melalui teknologi IoT.
+            </p>
+
+        </div>
+
+        <div class="summary-points">
+
+            <div class="summary-point">
+                <span>01</span>
+                <h3>RFID Access Control</h3>
+                <p>
+                    Mengatur akses pintu berdasarkan identitas pengguna
+                    melalui pembacaan kartu RFID.
+                </p>
+            </div>
+
+            <div class="summary-point">
+                <span>02</span>
+                <h3>IoT Door Control</h3>
+                <p>
+                    Mendukung kendali pembukaan pintu melalui aplikasi
+                    Blynk dan push button.
+                </p>
+            </div>
+
+            <div class="summary-point">
+                <span>03</span>
+                <h3>Vibration Detection</h3>
+                <p>
+                    Mendeteksi gangguan pada pintu menggunakan sensor
+                    getaran sebagai bagian dari sistem peringatan.
+                </p>
+            </div>
+
+            <div class="summary-point">
+                <span>04</span>
+                <h3>User Evaluation</h3>
+                <p>
+                    Evaluasi pengguna menunjukkan alat mudah digunakan
+                    dan bermanfaat untuk pengendalian akses pintu.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="project-footer">
+    <div class="container">
+
+        <div class="project-footer-content">
+
+            <div>
+                <p class="project-footer-label">
+                    ELECTRICAL ENGINEERING PORTFOLIO
+                </p>
+
+                <h2>
+                    Yohan Ridho Maulana.
+                </h2>
+
+                <p>
+                    Electrical Engineering | Maintenance |
+                    Instrumentation | Automation
+                </p>
+            </div>
+
+            <a href="index.html" class="project-back">
+                ← Kembali ke Portfolio
+            </a>
+
+        </div>
+
+        <div class="project-footer-bottom">
+            <p>
+                © 2026 Yohan Ridho Maulana. All Rights Reserved.
+            </p>
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
